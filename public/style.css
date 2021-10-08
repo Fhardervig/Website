@@ -21,8 +21,11 @@ footer {
 }
 
 header {
-  padding-top: 3%;
-  min-height: 70px;
+  padding-top: 10px;
+  min-height: 50px;
+  top: 0;
+  position: sticky;
+  background-color: #ff7f5080;
 }
 
 .container {
