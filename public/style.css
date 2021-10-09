@@ -21,7 +21,6 @@ footer {
 }
 
 header {
-  padding-top: 10px;
   min-height: 50px;
   top: 0;
   position: sticky;
@@ -35,10 +34,13 @@ header {
 
 .branding {
   float: left;
+  line-height: 10px;
 }
 
-.branding h1 {
-  font-weight: normal;
+h1.branding {
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
 }
 
 nav {
@@ -46,12 +48,12 @@ nav {
 }
 
 .navbar {
-  margin-top: 15%;
+  text-align: center;
 }
 
 .navbar li {
   display: inline-block;
-  padding: 0 5px;
+  padding: 0px 15px;
 }
 
 .navbar li a {
