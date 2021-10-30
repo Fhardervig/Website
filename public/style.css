@@ -8,55 +8,6 @@
         background-color: seashell;
     }
     
-    #tooltip {
-        background: olivedrab;
-        color: white;
-        font-weight: normal;
-        padding: 4px 8px;
-        font-size: 16px;
-        border-radius: 4px;
-        max-width: 320px;
-        display: none;
-    }
-    
-    #tooltip[data-show] {
-        display: block;
-    }
-    
-    #arrow,
-    #arrow::before {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: inherit;
-    }
-    
-    #arrow {
-        visibility: hidden;
-    }
-    
-    #arrow::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-    
-    #tooltip[data-popper-placement^='top']>#arrow {
-        bottom: -4px;
-    }
-    
-    #tooltip[data-popper-placement^='bottom']>#arrow {
-        top: -4px;
-    }
-    
-    #tooltip[data-popper-placement^='left']>#arrow {
-        right: -4px;
-    }
-    
-    #tooltip[data-popper-placement^='right']>#arrow {
-        left: -4px;
-    }
-    
     .column {
         float: left;
         padding: 10px;
