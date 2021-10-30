@@ -1,202 +1,90 @@
-/* General Rulesets */
-* {
-  color: #ffffff;
-}
-
-body {
-  font-family: Helvetica, sans-serif;
-	background: url("https://content.codecademy.com/courses/learn-handlebars/musicon/musicon_bg.png") no-repeat center center fixed;
-  background-size: cover;
-}
-
-a {
-  text-decoration: none;
-}
-
-footer {
-  width: 100%;
-  text-align: center;
-  bottom: 0;
-  position: static;
-}
-
-header {
-  min-height: 50px;
-  top: 0;
-  position: sticky;
-  background-color: #ff7f5080;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-.branding {
-  float: left;
-  line-height: 10px;
-}
-
-h1.branding {
-  font-weight: bold;
-  display: inline-block;
-  text-align: center;
-}
-
-nav {
-  float: right;
-}
-
-.navbar {
-  text-align: center;
-}
-
-.navbar li {
-  display: inline-block;
-  padding: 0px 15px;
-}
-
-.navbar li a {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: normal;
-}
-
-.navbar li a:hover, .navbar .current a {
-  color: #ffffff;
-}
-
-/* Home Page Rulesets */
-
-#introduction {
-  text-align: center;
-  margin-top: 15%;
-  margin-bottom: 50%;
-}
-
-#introduction h1 {
-  font-size: 60px;
-}
-
-#introduction p {
-  margin: 10% auto;
-  font-size: 18px;
-  font-weight: lighter;
-}
-
-#introduction a {
-  display: block;
-  width: 20%;
-  padding: 3% 8%;
-  margin: 0 auto;
-  color: #ffffff;
-  background-color: #4c7ef3;
-  border-radius: 4px;
-}
-
-#introduction a:hover {
-  background-color: #26A69A;
-}
-
-/* Store Page Rulesets */
-
-#showcase {
-  margin-top: 5%;
-  margin-bottom: 15%;
-}
-
-.instrument {
-  width: 90%;
-  overflow: auto;
-  background-color: rgb(255,255,255,0.9);
-  padding: 2% 5%;
-  margin: 5% auto;
-  border-radius: 5px;
-}
-
-.image {
-  display: inline-block;
-  vertical-align: middle;
-  width: 32%;
-  min-width: 100px;
-  margin: 0 auto;
-}
-
-.details {
-  display: inline-block;
-  vertical-align: middle;
-  width: 60%;
-  margin: -1% auto;
-  padding: 2%;
-}
-
-.name, .description, .price, del {
-  color: #000000;
-  text-align: left;
-}
-
-.description, .price {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.description {
-  height: 100%;
-  font-size: 13px;
-  overflow: auto;
-}
-
-.price {
-  margin: 0;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.sale {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #fa4359;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-}
-
-/* Contact Page Rulesets */
-
-#connection {
-  width: 100%;
-  margin: 15% auto;
-  text-align: center;
-}
-
-#top {
-  margin: 15% auto;
-}
-
-#top h2 {
-  margin: 3%;
-  font-size: 30px;
-  font-weight: normal;
-}
-
-#top p {
-  margin: 3%;
-  font-size: 18px;
-  font-weight: lighter;
-}
-
-.contact {
-  width: 100%;
-  margin: 10% auto;
-}
-
-.contact p, .contact ul {
-  margin: 1%;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-#location {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
+    * {
+        box-sizing: border-box;
+        /* Can't apply background color everywhere, will break math */
+    }
+    /* Create two equal columns that floats next to each other */
+    
+    body {
+        background-color: seashell;
+    }
+    
+    #tooltip {
+        background: olivedrab;
+        color: white;
+        font-weight: normal;
+        padding: 4px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+        max-width: 320px;
+        display: none;
+    }
+    
+    #tooltip[data-show] {
+        display: block;
+    }
+    
+    #arrow,
+    #arrow::before {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: inherit;
+    }
+    
+    #arrow {
+        visibility: hidden;
+    }
+    
+    #arrow::before {
+        visibility: visible;
+        content: '';
+        transform: rotate(45deg);
+    }
+    
+    #tooltip[data-popper-placement^='top']>#arrow {
+        bottom: -4px;
+    }
+    
+    #tooltip[data-popper-placement^='bottom']>#arrow {
+        top: -4px;
+    }
+    
+    #tooltip[data-popper-placement^='left']>#arrow {
+        right: -4px;
+    }
+    
+    #tooltip[data-popper-placement^='right']>#arrow {
+        left: -4px;
+    }
+    
+    .column {
+        float: left;
+        padding: 10px;
+        /* Should be removed. Only for demonstration */
+    }
+    
+    .blog {
+        width: calc((100vw - 370px));
+        /*max-width: 700px;
+    min-width: 350px;*/
+    }
+    
+    .sidebar {
+        width: 350px;
+        float: right;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to 
+each other */
+    
+    @media screen and (max-width: 700px) {
+        .column {
+            width: 100%;
+        }
+    }

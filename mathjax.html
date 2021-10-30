@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html itemscope itemtype="https://schema.org/QAPage" class="html__responsive ">
+
+<head>
+    <title>MathJax basic tutorial and quick reference - Mathematics Meta Stack Exchange</title>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) }, tex2jax: { inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ], displayMath: [ ["$$","$$"],
+        ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" }, TeX: { extensions: ["begingroup.js"], noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } }, messageStyle:
+        "none", styles: { ".MathJax_Display, .MathJax_Preview, .MathJax_Preview > *": { "background": "inherit" } }, SEEditor: "mathjaxEditing"});
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML-full"></script>
+    <link rel='stylesheet' href='./public/style.css'>
+</head>
+
+<body class="question-page unified-theme">
+    <p><strong>For inline formulas, enclose the formula in <code>$...$</code>.  For displayed formulas, use <code>$$...$$</code>.</strong><br /> These render differently. For example, type
+        <br />
+        <code>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$</code><br /> to show <span class="math-container sum_i_squared ">$\sum_{i=0}^n i^2 = \frac{{(n^2+n)}\cssId{eq1}{(2n+1)}}{6}\class{tooltiptext}{\text{This is text}}$</span> (which is inline mode)
+        or type<br />
+        <code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code><br /> to show
+        <span class="math-container sum_i_squared">
+          $$\sum_{i=0}^n i^2 = \frac{\class{tooltip term1}{(n^2+n)}{(2n+1)}}{6}\class{tooltiptext}{\text{This is text}}$$
+        </span> (which is display mode<span style="vertical-align:super">2</span>).</p>
+
+</body>
+<script type="text/javascript" src="./public/main.js"></script>

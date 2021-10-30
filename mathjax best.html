@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <title>MathJax basic tutorial and quick reference - Mathematics Meta Stack Exchange</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./public/main.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel='stylesheet' href='./public/style.css'>
+</head>
+
+<body class="question-page unified-theme">
+    <p><strong>For inline formulas, enclose the formula in <code>$...$</code>.  For displayed formulas, use <code>$$...$$</code>.</strong><br /> These render differently. For example, type
+        <br />
+        <code>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$</code><br /> to show <span class="math-container">$\sum_{i=0}^n i^2 = \frac{{(n^2+n)}(2n+1)}{6}$</span> (which is inline mode) or type<br />
+        <code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code><br /> to show
+        <div class="math-container">
+            $$\sum_{i=0}^n i^2 = \frac{\class{tooltip}{\cssId{popcorn}{(n^2+n)}}{(2n+1)}}{6}\ket{\psi}$$
+        </div>
+        <div id="tooltip" role="tooltip">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <div id="arrow" data-popper-arrow></div>
+        </div>
+
+        (which is display mode<span style="vertical-align:super">2</span>).</p>
+
+
+    <span class="tooltiptext" id="eq1tt">This is an interesting term!</span>
+</body>
