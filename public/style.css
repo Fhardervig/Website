@@ -1,41 +1,109 @@
-    * {
-        box-sizing: border-box;
-        /* Can't apply background color everywhere, will break math */
-    }
-    /* Create two equal columns that floats next to each other */
-    
-    body {
-        background-color: seashell;
-    }
-    
-    .column {
-        float: left;
-        padding: 10px;
-        /* Should be removed. Only for demonstration */
-    }
-    
-    .blog {
-        width: calc((100vw - 370px));
-        /*max-width: 700px;
-    min-width: 350px;*/
-    }
-    
-    .sidebar {
-        width: 350px;
-        float: right;
-    }
-    /* Clear floats after the columns */
-    
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to 
-each other */
-    
-    @media screen and (max-width: 700px) {
-        .column {
-            width: 100%;
-        }
-    }
+:root {
+    --main-bg-color: #e0d0e7;
+    --dark-bg-color: #714483;
+    --light-bg-color: #c074df;
+    --tooltip-bg-color: #714483;
+    --highlight-text-color: #d4a3e780;
+    --off-white: #f1f1f1;
+}
+
+* {
+    box-sizing: border-box;
+    /* Can't apply background color everywhere, will break math */
+}
+
+
+/* Create two equal columns that floats next to each other */
+
+body {
+    background-color: var(--main-bg-color);
+    max-width: 800px;
+    margin: auto;
+    font-size: 20px;
+}
+
+p {
+    text-align: left;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.collapsible {
+    background-color: var(--dark-bg-color);
+    color: var(--off-white);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    margin-left: -1px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: background-color 0.15s ease-out;
+}
+
+.active,
+.collapsible:hover {
+    background-color: var(--light-bg-color);
+}
+
+.collapsible::before {
+    content: '\002B';
+    color: var(--off-white);
+    font-weight: bold;
+    float: left;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.active::before {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: var(--off-white);
+    width: calc(100% - 1px);
+}
+
+.tippy-box[data-theme~='reference'] {
+    background-color: var(--tooltip-bg-color);
+    color: var(--off-white);
+}
+
+.tippy-box[data-theme~='reference']>.tippy-arrow::before {
+    color: var(--tooltip-bg-color);
+}
+
+.tooltip:hover {
+    border-bottom: ridge var(--light-bg-color);
+    background-color: var(--highlight-text-color);
+}
+
+.tooltip {
+    border-bottom: ridge var(--highlight-text-color);
+    border-radius: 5px;
+}
+
+.example {
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-image-slice: 1;
+    border-top: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-image-source: linear-gradient(to right, var(--light-bg-color), var(--light-bg-color) 15px, var(--main-bg-color) 50px);
+}
+
+.tight {
+    padding-left: 0px;
+    padding-bottom: 0px;
+    border-left-width: 5px;
+    border-bottom-width: 5px;
+}

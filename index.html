@@ -5,8 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QECC4CS</title>
-    <link rel='stylesheet' href='./public/style.css'>
-    <?xml version="1.0" encoding="UTF-8"?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./public/main.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--<link rel='stylesheet' href='./public/style.css'>-->
 </head>
 
 <body>
@@ -32,7 +53,7 @@
                 congue posuere vitae nec justo. Fusce cursus tristique consectetur. Morbi molestie augue non bibendum bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In sed vehicula purus. Interdum et malesuada
                 <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{F}_{2}=k\frac{q_{1}q_{2}\hat{\mathbf{r}}_{21}}{r_{21}^{2}}" display='inline'>
   <mrow>
-    <msub>
+    <msub id ="popcorn">
       <mi>𝐅</mi>
       <mn>2</mn>
     </msub>
@@ -70,9 +91,9 @@
       </mfrac>
     </mrow>
   </mrow>
-</math> fames ac ante ipsum primis in faucibus. Pellentesque vel consequat nulla. Nam egestas, odio vel rutrum ultricies, leo dolor fringilla risus, eu sodales metus ante vitae justo. Cras cursus justo eu justo bibendum sollicitudin. Duis id urna ullamcorper,
-                commodo tortor at, rhoncus enim. Aliquam fermentum augue non tellus condimentum gravida. Nullam imperdiet, nisl in iaculis vestibulum, orci metus eleifend ligula, ut facilisis ex sem id metus. Cras sed nisi sodales, iaculis ipsum sed,
-                malesuada libero. Integer in leo lorem. In scelerisque sem vitae urna ornare, id ornare lacus elementum. Curabitur in tortor sit amet elit venenatis feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+</math> fames ac ante ipsum primis in faucibus. Pellentesque vel consequat nulla. Nam egestas, odio vel rutrum ultricies, leo dolor fringilla risus, eu sodales metus ante vitae justo. Cras cursus justo eu justo bibendum sollicitudin. Duis
+                id urna ullamcorper, commodo tortor at, rhoncus enim. Aliquam fermentum augue non tellus condimentum gravida. Nullam imperdiet, nisl in iaculis vestibulum, orci metus eleifend ligula, ut facilisis ex sem id metus. Cras sed nisi sodales,
+                iaculis ipsum sed, malesuada libero. Integer in leo lorem. In scelerisque sem vitae urna ornare, id ornare lacus elementum. Curabitur in tortor sit amet elit venenatis feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
         </div>
         <div class="column sidebar">
             <h2>Column 2</h2>
