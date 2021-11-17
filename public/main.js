@@ -10,16 +10,8 @@ function wrong_ILQ(target, txt) {
     MathJax.typeset(target)
 }
 
-
-$(document).ready(function() {
-    $("#popcorn").click(function() {
-        alert($("#eq1tt").html());
-    }).css('cursor', 'pointer');
-});
-
-
 tippy('#popcorn', {
-    content: '<p style="width:250px">Hi, I\'m $\\left(n^2+n\\right)$! Thanks for hovering me 😄<br>I can\'t currently speak in MathJaxese but will hopefully learn soon!</p>',
+    content: '<p style="width:250px">Hi, I\'m $\\left(n^2+n\\right)$! Thanks for hovering me 😄<br>I\'m now fluent in MathJaxese and will help you understand the math on this page! Try finding $\\sigma_x$ in the text below.</p>',
     allowHTML: true,
     maxwidth: 350,
     onMount() {
@@ -61,9 +53,6 @@ $(".pauliX").each(function() {
     })
 })
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
 $(".collapsible").each(function() {
     this.addEventListener("click", function() {
         this.classList.toggle("active");
@@ -75,3 +64,9 @@ $(".collapsible").each(function() {
         }
     });
 })
+
+$(document).ready(function() {
+    $("#popcorn").click(function() {
+        alert($("#eq1tt").html());
+    }).css('cursor', 'pointer');
+});
