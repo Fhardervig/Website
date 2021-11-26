@@ -2,49 +2,147 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Musicon</title>
-  <link rel='stylesheet' href='./public/style.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QECC4CS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./public/main.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--<link rel='stylesheet' href='./public/style.css'>-->
 </head>
 
 <body>
-  <header>
-    <section class="container">
-      <h1 class="branding">Musicon</h1>
-      <nav>
-        <ul class='navbar'>
-          <li class='current'>
-            <a href='index.html'>Home</a>
-          </li>
-          <li>
-            <a href='store.html'>Store</a>
-          </li>
-          <li>
-            <a href='contact.html'>Contact</a>
-          </li>
-        </ul>
-      </nav>
 
-    </section>
-  </header>
+    <h2>Responsive Two Column Layout</h2>
+    <p>Resize the browser window to see the responsive effect (the columns will stack on top of each other instead of floating next to each other, when the screen is less than 600px wide).</p>
 
-  <article id="introduction">
-    <section class="container" id='information'>
-      <h1>Welcome to Musicon</h1>
-      <p>Musicon is a budding musical storefront with a mission to share the joy of music. These magnificent auditory
-        tools are designed with musical creators, like you, in mind. Hobbyists, beginners, and experts alike can
-        appreciate the resplendent sounds supplied by each and every instrument we carry. Join us in delivering the
-        euphoric vibrations of melodia to the citizens of the world!</p>
-      <a href="store.html">Shop Now</a>
-    </section>
-  </article>
+    <div class="row">
+        <div class="column blog">
+            <h2>Column 1</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis orci vulputate, tincidunt sapien a, efficitur mauris. Aenean non mauris est. Donec tempor viverra lorem, in facilisis dui feugiat a. Nulla facilisi. Maecenas nec laoreet lorem.
+                Nam aliquet metus id sem eleifend interdum. Curabitur consectetur lorem nec euismod convallis. Ut sed pretium risus. Maecenas id sagittis sem, sed auctor risus. Nunc a mollis enim. Praesent volutpat feugiat turpis ut mollis. Praesent viverra
+                neque sit amet ligula ultrices blandit. Nunc dapibus scelerisque suscipit. Nulla nisi sem, commodo ut mattis quis, tempus ut quam. Cras eget lacus ullamcorper lacus tempor accumsan. Pellentesque ligula purus, pellentesque vitae egestas
+                at, elementum vel mauris. Morbi sit amet tellus nisi. Nullam sem nibh, commodo nec mi vel, sagittis fringilla felis. Nam a leo sed turpis vestibulum iaculis varius in ligula. Vivamus vulputate pellentesque massa. In convallis leo odio,
+                vel blandit justo vehicula non. Morbi nec iaculis augue, in pretium urna. Donec vel tortor magna. Integer vel pellentesque tortor, eget scelerisque elit. Aenean quis elit varius, rhoncus justo eget, rutrum nisl. Donec sapien ante, sollicitudin
+                ac metus eu, consectetur aliquam massa. Duis at dolor vel neque hendrerit semper vel a nisl. Sed facilisis a elit et blandit. Cras et maximus lectus. Integer sem urna, euismod id nulla sit amet, tincidunt suscipit eros. Mauris gravida
+                sed metus eu molestie. Proin condimentum odio turpis, ac dapibus nibh tempor a. Sed placerat lacus risus, dignissim tempor nibh facilisis et. Nulla facilisi. Nunc tempor nisl diam, in bibendum nulla congue vel. Nulla bibendum non velit
+                id pulvinar. Pellentesque tempor diam eu orci blandit tincidunt. Donec justo nulla, aliquam vel arcu varius, dapibus facilisis arcu. Quisque nulla leo, maximus at ante vel, ornare dapibus diam. Nullam et lectus eget mauris porta feugiat
+                ut sed enim. Suspendisse pulvinar quam dapibus tortor vehicula tristique. Phasellus ante metus, gravida in quam eu, molestie tristique mi. Mauris sodales, sapien et cursus egestas, nibh lectus sodales nulla, nec vehicula urna diam ac risus.
+                Duis fermentum varius urna eget sagittis. Donec imperdiet ante dignissim, eleifend ipsum eget, auctor diam. Mauris iaculis nulla volutpat, feugiat ante nec, tincidunt purus. Curabitur vel diam in lacus laoreet pulvinar. Pellentesque ornare
+                justo sit amet augue maximus, ut vestibulum velit pharetra. Nam non tincidunt ligula, mollis hendrerit erat. Nam at purus sodales, dignissim sapien a, congue tellus. Quisque non quam id massa tristique consectetur. Donec ac elit eu mauris
+                congue posuere vitae nec justo. Fusce cursus tristique consectetur. Morbi molestie augue non bibendum bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In sed vehicula purus. Interdum et malesuada
+                <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{F}_{2}=k\frac{q_{1}q_{2}\hat{\mathbf{r}}_{21}}{r_{21}^{2}}" display='inline'>
+  <mrow>
+    <msub id ="popcorn">
+      <mi>𝐅</mi>
+      <mn>2</mn>
+    </msub>
+    <mo>=</mo>
+    <mrow>
+      <mi>k</mi>
+      <mo>⁢</mo>
+      <mfrac>
+        <mrow>
+          <msub>
+            <mi>q</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>⁢</mo>
+          <msub>
+            <mi>q</mi>
+            <mn>2</mn>
+          </msub>
+          <mo>⁢</mo>
+          <msub>
+            <mover accent="true">
+              <mi>𝐫</mi>
+              <mo stretchy="true">^</mo>
+            </mover>
+            <mn>21</mn>
+          </msub>
+        </mrow>
+        <mrow>
+        <msubsup>
+          <mi>r</mi>
+          <mn>21</mn>
+          <mn>2</mn>
+        </msubsup>
+        </mrow>
+      </mfrac>
+    </mrow>
+  </mrow>
+</math> fames ac ante ipsum primis in faucibus. Pellentesque vel consequat nulla. Nam egestas, odio vel rutrum ultricies, leo dolor fringilla risus, eu sodales metus ante vitae justo. Cras cursus justo eu justo bibendum sollicitudin. Duis
+                id urna ullamcorper, commodo tortor at, rhoncus enim. Aliquam fermentum augue non tellus condimentum gravida. Nullam imperdiet, nisl in iaculis vestibulum, orci metus eleifend ligula, ut facilisis ex sem id metus. Cras sed nisi sodales,
+                iaculis ipsum sed, malesuada libero. Integer in leo lorem. In scelerisque sem vitae urna ornare, id ornare lacus elementum. Curabitur in tortor sit amet elit venenatis feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        </div>
+        <div class="column sidebar">
+            <h2>Column 2</h2>
+            <p>Some text..</p>
+        </div>
+    </div>
 
-  <footer>
-    <p>&copy; Musicon</p>
-  </footer>
-  <script src="public/main.js"></script>
+    <p>Heyo, blah blah
+        <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{F}_{2}=k\frac{q_{1}q_{2}\hat{\mathbf{r}}_{21}}{r_{21}^{2}}" display='inline'>
+  <mrow>
+    <msub>
+      <mi>𝐅</mi>
+      <mn>2</mn>
+    </msub>
+    <mo>=</mo>
+    <mrow>
+      <mi>k</mi>
+      <mo>⁢</mo>
+      <mfrac>
+        <mrow>
+          <msub>
+            <mi>q</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>⁢</mo>
+          <msub>
+            <mi>q</mi>
+            <mn>2</mn>
+          </msub>
+          <mo>⁢</mo>
+          <msub>
+            <mover accent="true">
+              <mi>𝐫</mi>
+              <mo stretchy="true">^</mo>
+            </mover>
+            <mn>21</mn>
+          </msub>
+        </mrow>
+        <mrow>
+        <msubsup>
+          <mi>r</mi>
+          <mn>21</mn>
+          <mn>2</mn>
+        </msubsup>
+        </mrow>
+      </mfrac>
+    </mrow>
+  </mrow>
+</math> blach blue</p>
 </body>
 
 </html>

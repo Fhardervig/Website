@@ -1,202 +1,271 @@
-/* General Rulesets */
-* {
-  color: #ffffff;
+:root {
+    --main-bg-color: #fff2ff;
+    /*#e0d0e7;*/
+    --dark-bg-color: #714483;
+    /* #9381FF; */
+    --light-bg-color: #c074df;
+    /* #B8B8FF; */
+    --llight-bg-color: #ffeaff;
+    /* #F8F7FF; */
+    --tooltip-bg-color: #714483;
+    /* #FFEEDD; */
+    --strong-bg-color: #9381FF;
+    /*  #FFD8BE; */
+    --highlight-text-color: #d4a3e780;
+    /* #d4a3e780; */
+    --off-white: #fffafa;
+    --correct-text-color: green;
+    --wrong-text-color: red;
+    --correct-color: #7cbe7c;
+    --wrong-color: #e93030;
+    --drag-border-radius: 15px;
 }
+
+* {
+    box-sizing: border-box;
+    /* Can't apply background color everywhere, will break math */
+}
+
+
+/* Create two equal columns that floats next to each other */
 
 body {
-  font-family: Helvetica, sans-serif;
-	background: url("https://content.codecademy.com/courses/learn-handlebars/musicon/musicon_bg.png") no-repeat center center fixed;
-  background-size: cover;
+    background-color: var(--main-bg-color);
+    max-width: 800px;
+    margin: auto;
+    font-size: 20px;
 }
 
-a {
-  text-decoration: none;
+h1 {
+    color: #111;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 64px;
+    margin: 0 0 0;
+    padding: 20px 30px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-footer {
-  width: 100%;
-  text-align: center;
-  bottom: 0;
-  position: static;
+h2 {
+    color: #111;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: 0 0 24px;
+    padding: 0 30px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-header {
-  min-height: 50px;
-  top: 0;
-  position: sticky;
-  background-color: #ff7f5080;
+p {
+    text-align: left;
 }
 
-.container {
-  width: 90%;
-  margin: auto;
+h3 {
+    margin-bottom: 10px;
 }
 
-.branding {
-  float: left;
-  line-height: 10px;
+.collapsible {
+    background-color: var(--dark-bg-color);
+    color: var(--off-white);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    margin-left: -1px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: background-color 0.15s ease-out;
 }
 
-h1.branding {
-  font-weight: bold;
-  display: inline-block;
-  text-align: center;
+.active,
+.collapsible:hover {
+    background-color: var(--light-bg-color);
 }
 
-nav {
-  float: right;
+.collapsible::before {
+    content: '\002B';
+    color: var(--off-white);
+    font-weight: bold;
+    float: left;
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
-.navbar {
-  text-align: center;
+.active::before {
+    content: "\2212";
 }
 
-.navbar li {
-  display: inline-block;
-  padding: 0px 15px;
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: var(--llight-bg-color);
+    width: calc(100% - 1px);
 }
 
-.navbar li a {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: normal;
+
+/* #region  Tooltip themes */
+
+.tippy-box[data-theme~='reference'] {
+    background-color: var(--tooltip-bg-color);
+    color: #111;
+    /* color: var(--off-white); */
 }
 
-.navbar li a:hover, .navbar .current a {
-  color: #ffffff;
+.tippy-box[data-theme~='reference']>.tippy-arrow::before {
+    color: var(--tooltip-bg-color);
 }
 
-/* Home Page Rulesets */
-
-#introduction {
-  text-align: center;
-  margin-top: 15%;
-  margin-bottom: 50%;
+.tippy-box[data-theme~='ILQ'] {
+    background-color: var(--tooltip-bg-color);
+    color: #111;
+    /* color: var(--off-white); */
 }
 
-#introduction h1 {
-  font-size: 60px;
+.tippy-box[data-theme~='ILQ']>.tippy-arrow::before {
+    color: var(--tooltip-bg-color);
 }
 
-#introduction p {
-  margin: 10% auto;
-  font-size: 18px;
-  font-weight: lighter;
+
+/* #endregion */
+
+
+/* #region Tooltip markings  */
+
+.tippy-content {
+    font-size: 18px;
 }
 
-#introduction a {
-  display: block;
-  width: 20%;
-  padding: 3% 8%;
-  margin: 0 auto;
-  color: #ffffff;
-  background-color: #4c7ef3;
-  border-radius: 4px;
+.tooltip {
+    border-bottom: ridge var(--highlight-text-color);
+    border-radius: 5px;
+    transition: background-color 0.25s ease;
 }
 
-#introduction a:hover {
-  background-color: #26A69A;
+.tooltip:hover {
+    border-bottom: ridge var(--light-bg-color);
+    background-color: var(--highlight-text-color);
 }
 
-/* Store Page Rulesets */
 
-#showcase {
-  margin-top: 5%;
-  margin-bottom: 15%;
+/* #endregion */
+
+.example {
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-image-slice: 1;
+    border-top: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-image-source: linear-gradient(to right, var(--light-bg-color), var(--light-bg-color) 15px, var(--main-bg-color) 50px);
 }
 
-.instrument {
-  width: 90%;
-  overflow: auto;
-  background-color: rgb(255,255,255,0.9);
-  padding: 2% 5%;
-  margin: 5% auto;
-  border-radius: 5px;
+.tight {
+    padding-left: 0px;
+    padding-bottom: 0px;
+    border-left-width: 5px;
+    border-bottom-width: 5px;
 }
 
-.image {
-  display: inline-block;
-  vertical-align: middle;
-  width: 32%;
-  min-width: 100px;
-  margin: 0 auto;
+
+/* #region  Heading styling */
+
+time {
+    color: #111;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
 }
 
-.details {
-  display: inline-block;
-  vertical-align: middle;
-  width: 60%;
-  margin: -1% auto;
-  padding: 2%;
+time:before {
+    border-top: 1px solid #111;
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
 }
 
-.name, .description, .price, del {
-  color: #000000;
-  text-align: left;
+address {
+    color: #111;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    padding-bottom: 38px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
 }
 
-.description, .price {
-  margin-top: 0;
-  margin-bottom: 16px;
+address:before {
+    border-top: 1px solid #111;
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
 }
 
-.description {
-  height: 100%;
-  font-size: 13px;
-  overflow: auto;
+address span,
+time span {
+    background: var(--main-bg-color);
+    padding: 0 10px;
+    text-transform: uppercase;
 }
 
-.price {
-  margin: 0;
-  font-size: 16px;
-  font-weight: bold;
+
+/* #endregion */
+
+.sbs-proof {
+    width: 100%;
+    min-height: 210px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 70% 30%;
+    gap: 0px 0px;
+    grid-auto-flow: row;
 }
 
-.sale {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #fa4359;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
+.proof-equations {
+    padding: 1em;
+    border: 5px solid green;
+    overflow-wrap: break-word;
 }
 
-/* Contact Page Rulesets */
-
-#connection {
-  width: 100%;
-  margin: 15% auto;
-  text-align: center;
+.proof-explanation {
+    padding: 0.5em;
+    border: 5px solid red;
+    min-height: 70px;
 }
 
-#top {
-  margin: 15% auto;
+.proof-navigation {
+    padding-top: 10px;
+    text-align: center;
+    grid-row: 1/3;
+    border: 5px solid blue;
+    overflow-wrap: break-word;
+    /*display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr) 3fr;
+    grid-gap: 20px;*/
 }
 
-#top h2 {
-  margin: 3%;
-  font-size: 30px;
-  font-weight: normal;
-}
-
-#top p {
-  margin: 3%;
-  font-size: 18px;
-  font-weight: lighter;
-}
-
-.contact {
-  width: 100%;
-  margin: 10% auto;
-}
-
-.contact p, .contact ul {
-  margin: 1%;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-#location {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+.proof-navigation button {
+    margin: 10px 0px;
+    font-size: 30px;
+    /*height: 50px;
+    width: 100%;*/
+    background-color: green;
 }
