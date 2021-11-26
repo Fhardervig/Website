@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Classic To Quantum</title>
+    <link rel="icon" type="image/x-icon" href="./favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./public/ClassicalToQuantum.js");
+                        $.getScript("./public/main.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel='stylesheet' href='./public/style.css'>
+    <link rel='stylesheet' href='./public/dragula_style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+</head>
+
+<body>
+    <!-- For Drag n' Drop-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js" integrity="sha512-MrA7WH8h42LMq8GWxQGmWjrtalBjrfIzCQ+i2EZA26cZ7OBiBd/Uct5S3NP9IBqKx5b+MMNH1PhzTsk6J9nPQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <nav>This is supposed to be a navbar?</nav>
+    <time pubdate datetime="2021-11-23" title="November 23rd, 2021"><span>NOV.23.2021</span></time>
+
+    <h1>
+        From Classical Bits to Quantum Bits
+    </h1>
+
+    <address class="author"><span>By Frederik Hardervig</span></address>
+
+    <div class="example tight">
+        <button class="collapsible">I have draggable content inside!</button>
+        <div class="content">
+            <div class="draggable">
+                <div class="left" data-answer="default">
+                    <div id="drag_el1" class="draggable-element">Element 1</div>
+                    <div id="drag_el2" class="draggable-element">Element 2</div>
+                    <div id="drag_el3" class="draggable-element">Element 3</div>
+                    <div id="drag_el4" class="draggable-element">Element 4</div>
+
+                </div>
+                <div class="right" data-answer="default">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <p><strong>For displayed formulas, use <code>$$...$$</code>.</strong><br>Type
+        <br />
+        <code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code><br /> to show
+        <div class="math-container">
+            $$\sum_{i=0}^n i^2 = \frac{\class{tooltip}{\cssId{popcorn}{(n^2+n)}}{(2n+1)}}{6}$$
+        </div>
+
+        Whoah, <span class="ilq" id="inlinequiz1">____</span> are supported!
+    </p>
+    <p>The state
+        <span class="math-container">
+            $\ket{\psi}=\frac{1}{\sqrt{2}}\left(\ket{0}+\ket{1}\right)$
+    </span> is better known as <span class="ilq" id="inlinequiz2">____</span>.
+    </p>
+    <p>To flip a qubit, you can use the
+        <span class="math-container">
+            $\class{pauliX tooltip}{\sigma_x}$
+    </span> operator.
+
+
+    </p>
+    <p>
+        Etiam ac mauris a dolor scelerisque auctor. Nunc mollis pretium urna, et sollicitudin augue accumsan in. Fusce urna purus, euismod eget placerat a, cursus in magna. Quisque ut lorem vel nulla aliquet viverra. Fusce eu vehicula urna. Suspendisse vel nibh
+        dapibus non auctor a, sagittis quis augue. Nunc rutrum fringilla sapien vitae vestibulum. Mauris eu enim metus. Nulla a accumsan purus.
+    </p>
+    <div class="example">
+        What's up man?
+        <p class="example">
+            I'm a subparagraph!
+        </p>
+        <div class="example tight">
+            <button class="collapsible">More about errors</button>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        Heyo what's going on here?
+    </div>
+    <div class="draggable">
+        <h3>Drag these to the cells below</h3>
+        <div class="top" data-answer="default">
+            <div id="drag_sigmax" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}}$</div>
+            <div id="drag_sigmay" class="draggable-element" data-answer="not_commute">$\class{pauliX tooltip}{\sigma_y}$</div>
+            <div id="drag_sigmaz" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_z}$</div>
+            <div id="drag_identity" class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+
+        </div>
+        <div class="drag_title">
+            <h3 class="left_title">Does not commute</h3>
+            <h3 class="right_title">Does commute</h3>
+        </div>
+        <div class="left" data-answer="not_commute">
+        </div>
+        <div class="right" data-answer="commute">
+
+        </div>
+
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        Again, we see and example of the Pauli X operator, <span class="math-container">
+            $\class{pauliX tooltip}{\sigma_x}$
+    </span>, here in the text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu sapien in mauris mattis volutpat. Donec vulputate ante ac lorem hendrerit, vel sagittis turpis suscipit. Fusce eleifend, nulla in tempor tempus, diam lorem
+        auctor dolor, id hendrerit urna odio in nulla. Aliquam vitae sem auctor, interdum elit vel, pellentesque purus. Suspendisse pellentesque commodo pulvinar. Ut feugiat libero vitae magna pellentesque pellentesque. Integer cursus libero ut finibus
+        venenatis. Praesent pretium tortor ex, ac semper risus gravida nec. Cras varius quam augue. In euismod porttitor malesuada. Quisque ut purus viverra odio euismod dictum ac a dui.
+    </div>
+    <p> Blah blah</p>
+
+    <div class="sbs-proof">
+        <div class="proof-navigation">
+            <button class="proof-prev-button" , onclick="prevProofStep(this.value)">&#9651</button>
+            <button class="proof-next-button" , onclick="nextProofStep(this.value)">&#9661</button>
+            <button class="proof-reset-button" , onclick="resetProof(this.value)">&#8634</button>
+            <button class="proof-expand-button" , onclick="expandProof(this.value)">&#x26F6</button>
+        </div>
+        <div class="proof-equations">
+            <div>$\begin{align*}\hat{H}&=\frac{\hat{p}^2}{2m}+\frac{m\omega^2\hat{x}^2}{2}\\ &=\frac{\left({\color{brown}-i}\sqrt{\frac{\hbar m \omega}{2}}(\hat{a}-\hat{a}^\dagger)\right)^2}{2m}+\frac{m\omega^2\left(\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}+\hat{a}^\dagger)\right)^2}{2}\\
+                &={\color{brown}-}\frac{\hbar\omega(\hat{a}-\hat{a}^\dagger)^2}{4}+\frac{\hbar\omega(\hat{a}+\hat{a}^\dagger)^2}{4}\\ &=\frac{\hbar\omega}{4}\left(\left(\hat{a}\hat{a}^\dagger+\class{pauliX tooltip}{\hat{a}^\dagger\hat{a}}\cancel{-\hat{a}\hat{a}-\hat{a}^\dagger\hat{a}^\dagger}\right)+\left(\cancel{\hat{a}\hat{a}+\hat{a}^\dagger\hat{a}^\dagger}+\hat{a}\hat{a}^\dagger+\hat{a}^\dagger\hat{a}\right)\right)\\
+                &=\frac{\hbar\omega}{2}\left(\hat{a}\hat{a}^\dagger+\hat{a}^\dagger\hat{a}\right)\\ \end{align*}$
+            </div>
+        </div>
+        <div class="proof-explanation">
+            <div class="step">Equation 1: $a^2$</div>
+            <div class="step">Equation 2: $b^2$</div>
+            <div class="step">Equation 3: $\class{pauliX tooltip}{c^2}$</div>
+            <div class="step">Equation 4: $d^2$</div>
+            <div class="step">Equation 5: $e^2$</div>
+        </div>
+
+    </div>
+    <p>Blah blah blah</p>
+    <div class="sbs-proof">
+        <div class="proof-navigation">
+            <button class="proof-prev-button" , onclick="prevProofStep(this.value)">&#9651</button>
+            <button class="proof-next-button" , onclick="nextProofStep(this.value)">&#9661</button>
+            <button class="proof-reset-button" , onclick="resetProof(this.value)">&#8634</button>
+            <button class="proof-expand-button" , onclick="expandProof(this.value)">&#x26F6</button>
+        </div>
+        <div class="proof-equations">
+            <div>$\begin{align*}\hat{H}&=\frac{\hat{p}^2}{2m}+\frac{m\omega^2\hat{x}^2}{2}\\ &=\frac{\left({\color{brown}-i}\sqrt{\frac{\hbar m \omega}{2}}(\hat{a}-\hat{a}^\dagger)\right)^2}{2m}+\frac{m\omega^2\left(\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}+\hat{a}^\dagger)\right)^2}{2}\\
+                &={\color{brown}-}\frac{\hbar\omega(\hat{a}-\hat{a}^\dagger)^2}{4}+\frac{\hbar\omega(\hat{a}+\hat{a}^\dagger)^2}{4}\\ \end{align*}$
+            </div>
+        </div>
+        <div class="proof-explanation">
+            <div class="step">Equation2 1: $a^2$</div>
+            <div class="step">Equation2 2: $b^2$</div>
+            <div class="step">Equation2 3: $\class{pauliX tooltip}{c^2}$</div>
+            <div class="step">Equation2 4: $d^2$</div>
+            <div class="step">Equation2 5: $e^2$</div>
+        </div>
+
+    </div>
+</body>
