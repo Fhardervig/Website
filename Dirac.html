@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <title>MathJax basic tutorial and quick reference - Mathematics Meta Stack Exchange</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./public/main.js");
+                        $.getScript("./public/dirac.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel='stylesheet' href='./public/style.css'>
+</head>
+
+<body class="question-page unified-theme">
+    <p>
+        Morbi sed quam eu nulla posuere fringilla sit amet ac arcu. Sed lacus mauris, volutpat sed felis et, gravida hendrerit erat. Maecenas dapibus augue quam, in dapibus nunc aliquam ut. Vivamus molestie quam quis dapibus dapibus. Mauris faucibus sed dolor
+        sed bibendum. Curabitur id risus commodo, rutrum nisl a, pulvinar neque. Nulla porta felis arcu. Donec condimentum lacus ut leo ultrices, maximus congue ipsum feugiat. Ut lobortis felis ut dui semper, et lacinia ligula vehicula. Aliquam iaculis
+        risus et dolor tempus, quis ornare libero pharetra. Cras semper non lacus et vulputate. Nunc ut orci tristique, sodales sem vitae, elementum dolor. Praesent condimentum egestas magna nec vulputate. Fusce ac justo mollis, pharetra nunc in, luctus
+        purus. $\class{pauliX tooltip}{\sigma_x}$
+    </p>
+    <div class="example tight">
+        <button class="collapsible">More about errors</button>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <p><strong>For displayed formulas, use <code>$$...$$</code>.</strong><br>Type
+        <br />
+        <code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code><br /> to show
+        <div class="math-container">
+            $$\sum_{i=0}^n i^2 = \frac{\class{tooltip}{\cssId{popcorn}{(n^2+n)}}{(2n+1)}}{6}$$
+        </div>
+
+        Whoah, <span class="ilq" id="inlinequiz1">____</span> are supported!
+    </p>
+    <p>The state
+        <span class="math-container">
+            $\ket{\psi}=\frac{1}{\sqrt{2}}\left(\ket{0}+\ket{1}\right)$
+    </span> is better known as <span class="ilq" id="inlinequiz2">____</span>.
+    </p>
+    <p>To flip a qubit, you can use the
+        <span class="math-container">
+            $\class{pauliX tooltip}{\sigma_x}$
+    </span> operator.
+
+
+    </p>
+    <p>
+        Etiam ac mauris a dolor scelerisque auctor. Nunc mollis pretium urna, et sollicitudin augue accumsan in. Fusce urna purus, euismod eget placerat a, cursus in magna. Quisque ut lorem vel nulla aliquet viverra. Fusce eu vehicula urna. Suspendisse vel nibh
+        dapibus non auctor a, sagittis quis augue. Nunc rutrum fringilla sapien vitae vestibulum. Mauris eu enim metus. Nulla a accumsan purus.
+    </p>
+    <div class="example">
+        <h3>Example</h3>
+        Again, we see and example of the Pauli X operator, <span class="math-container">
+            $\class{pauliX tooltip}{\sigma_x}$
+    </span>, here in the text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu sapien in mauris mattis volutpat. Donec vulputate ante ac lorem hendrerit, vel sagittis turpis suscipit. Fusce eleifend, nulla in tempor tempus, diam lorem
+        auctor dolor, id hendrerit urna odio in nulla. Aliquam vitae sem auctor, interdum elit vel, pellentesque purus. Suspendisse pellentesque commodo pulvinar. Ut feugiat libero vitae magna pellentesque pellentesque. Integer cursus libero ut finibus
+        venenatis. Praesent pretium tortor ex, ac semper risus gravida nec. Cras varius quam augue. In euismod porttitor malesuada. Quisque ut purus viverra odio euismod dictum ac a dui.
+    </div>
+    <p>
+        Etiam ac mauris a dolor scelerisque auctor. Nunc mollis pretium urna, et sollicitudin augue accumsan in. Fusce urna purus, euismod eget placerat a, cursus in magna. Quisque ut lorem vel nulla aliquet viverra. Fusce eu vehicula urna. Suspendisse vel nibh
+        id erat pellentesque blandit feugiat sed sapien. Integer eleifend leo vitae ante faucibus tincidunt. Donec vestibulum sodales mi. Donec dapibus diam at eros vestibulum placerat. Nulla sed lacinia odio, vel feugiat tortor. Morbi sapien lectus,
+        dapibus non auctor a, sagittis quis augue. Nunc rutrum fringilla sapien vitae vestibulum. Mauris eu enim metus. Nulla a accumsan purus.
+    </p>
+
+</body>
