@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Coherent State Quiz</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Run MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            },
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(function() {
+                        $.getScript("./coherentStates.js");
+                        $.getScript("../../public/main.js");
+                    });
+                }
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel='stylesheet' href="../../public/theme.css">
+    <link rel='stylesheet' href='../../public/style.css'>
+    <link rel='stylesheet' href='../../public/dragula_style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js" integrity="sha512-MrA7WH8h42LMq8GWxQGmWjrtalBjrfIzCQ+i2EZA26cZ7OBiBd/Uct5S3NP9IBqKx5b+MMNH1PhzTsk6J9nPQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+
+
+<body>
+    <time pubdate datetime="2021-11-28" title="November 28th, 2021"><span>NOV.28.2021</span></time>
+
+    <h1>
+        Coherent States Quiz
+    </h1>
+
+    <address class="author"><span>By Frederik Hardervig</span></address>
+
+    <div class="draggable">
+        <h3>Drag these to the cells below</h3>
+        <div class="top" data-answer="default">
+            <div id="drag_sigmax" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}}$</div>
+            <div id="drag_sigmay" class="draggable-element" data-answer="not_commute">$\class{pauliX tooltip}{\sigma_y}$</div>
+            <div id="drag_sigmaz" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_z}$</div>
+            <div id="drag_identity" class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+        </div>
+        <div class="drag_title">
+            <h3 class="left_title">Does not commute</h3>
+            <h3 class="right_title">Does commute</h3>
+        </div>
+        <div class="left" data-answer="not_commute">
+        </div>
+        <div class="right" data-answer="commute">
+
+        </div>
+
+    </div>
+
+
+
+</body>

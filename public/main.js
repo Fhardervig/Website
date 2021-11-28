@@ -27,12 +27,12 @@ function wrong_ILQ(target, txt) {
 
 function correct_dragquiz(el) {
     el._tippy.enable();
-    el._tippy.setContent(correct_drag_content(el.id));
+    el._tippy.setContent(el.dataset.correctText ? el.dataset.correctText : "Correct!");
 }
 
 function wrong_dragquiz(el) {
     el._tippy.enable();
-    el._tippy.setContent(wrong_drag_content(el.id));
+    el._tippy.setContent(el.dataset.wrongText ? el.dataset.wrongText : "That's not quite right.<br>Can you figure out why?");
 }
 
 $(".collapsible").each(function() {
@@ -46,6 +46,26 @@ $(".collapsible").each(function() {
         }
     });
 })
+
+
+/* #region Drag n ' Drop for page */
+$(".draggable").each(function() {
+        dragula([$(this).children(".top")[0], $(this).children(".left")[0], $(this).children(".right")[0]], {
+            revertOnSpill: false
+        }).on('drop', function(el, container) {
+            if (el.getAttribute("data-answer") == container.getAttribute("data-answer")) {
+                el.style.backgroundColor = correctColor;
+                correct_dragquiz(el);
+            } else if (container.getAttribute("data-answer") == "default") {
+                el.style.backgroundColor = "";
+                el._tippy.disable();
+            } else {
+                el.style.backgroundColor = wrongColor;
+                wrong_dragquiz(el);
+            }
+        })
+    })
+    /* #endregion */
 
 $(".draggable-element").each(function() {
     tippy(this, {

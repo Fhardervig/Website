@@ -26,6 +26,7 @@
         }
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel='stylesheet' href="./public/theme.css">
     <link rel='stylesheet' href='./public/style.css'>
     <link rel='stylesheet' href='./public/dragula_style.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
@@ -104,15 +105,18 @@
     <div class="draggable">
         <h3>Drag these to the cells below</h3>
         <div class="top" data-answer="default">
-            <div id="drag_sigmax" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}}$</div>
-            <div id="drag_sigmay" class="draggable-element" data-answer="not_commute">$\class{pauliX tooltip}{\sigma_y}$</div>
+            <div id="drag_sigmax" class="draggable-element" data-answer="commute" data-correct-text="I'm $\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}$" data-wrong-text="I'm not $\sigma_x$">$\class{pauliX tooltip}{\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}}$</div>
+            <div id="drag_sigmay" class="draggable-element" data-answer="not_commute" data-correct-text="I'm $\sigma_y$" data-wrong-text="">$\class{pauliX tooltip}{\sigma_y}$</div>
             <div id="drag_sigmaz" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_z}$</div>
-            <div id="drag_identity" class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div id="drag_identity" class="draggable-element" data-answer="not_commute" data-correct-text="" data-wrong-text="">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute" data-correct-text="" data-wrong-text="">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute" data-correct-text="" data-wrong-text="">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="not_commute" data-correct-text="" data-wrong-text="">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
 
         </div>
+
+
+
         <div class="drag_title">
             <h3 class="left_title">Does not commute</h3>
             <h3 class="right_title">Does commute</h3>
