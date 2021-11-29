@@ -6,6 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/material.css" />
+
     <!-- Run MathJax -->
     <script>
         MathJax = {
@@ -40,34 +42,39 @@
     <time pubdate datetime="2021-11-28" title="November 28th, 2021"><span>NOV.28.2021</span></time>
 
     <h1>
-        Coherent States Quiz
+        Coherent State Quiz
     </h1>
 
-    <address class="author"><span>By Frederik Hardervig</span></address>
-
+    <address class="author"><span>By Frederik Hardervig</span></address> Sort the quantities below into time independent and time dependent groups by dragging them. It is assumed that the quantities are for coherent states. E.g. Instead of saying "The
+    uncertainty of the position operator for coherent states" we simply say "The uncertainty of the position operator" and put an $\alpha$ in the subscript.
     <div class="draggable">
-        <h3>Drag these to the cells below</h3>
+        <h3>Drag these quantities to the cells below</h3>
         <div class="top" data-answer="default">
-            <div id="drag_sigmax" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_x=\begin{pmatrix}0&1\\0&1\end{pmatrix}}$</div>
-            <div id="drag_sigmay" class="draggable-element" data-answer="not_commute">$\class{pauliX tooltip}{\sigma_y}$</div>
-            <div id="drag_sigmaz" class="draggable-element" data-answer="commute">$\class{pauliX tooltip}{\sigma_z}$</div>
-            <div id="drag_identity" class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
-            <div class="draggable-element" data-answer="not_commute">I'm the identity operator $\class{pauliX tooltip}{\mathbb{I}}$</div>
+            <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$">The expectation value of position, $\left\langle \hat{x}\right\rangle_\alpha(t)$ </div>
+            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$">The uncertainty of the position operator, $\Delta\hat{x}_\alpha$ </div>
+
+
+
+            <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$">The expectation value of momentum, $\left\langle \hat{p}\right\rangle_\alpha(t)$ </div>
+            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$">The uncertainty of the momentum operator, $\Delta\hat{p}_\alpha$ </div>
+
+            <div class="draggable-element" data-answer="independent" data-correct-text="Not quite. Remember that $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$" data-wrong-text="True! There's a $t$ in $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$">The expectation value of energy, $\langle \hat{H}\rangle_\alpha(t)$ </div>
+            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$">The uncertainty of the energy operator, $\Delta\hat{H}_\alpha$ </div>
         </div>
+
+
+
         <div class="drag_title">
-            <h3 class="left_title">Does not commute</h3>
-            <h3 class="right_title">Does commute</h3>
+            <h3 class="left_title">Time independent </h3>
+            <h3 class="right_title">Time dependent</h3>
         </div>
-        <div class="left" data-answer="not_commute">
+        <div class="left" data-answer="independent">
         </div>
-        <div class="right" data-answer="commute">
+        <div class="right" data-answer="dependent">
 
         </div>
 
     </div>
-
 
 
 </body>

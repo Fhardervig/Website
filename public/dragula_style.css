@@ -1,6 +1,9 @@
 .draggable {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title title" "top top" "subtitle subtitle " "left right";
+    /*display: flex;
+    flex-wrap: wrap;*/
     background-color: var(--main-bg-color);
     margin: 10px auto;
     padding: 0em;
@@ -10,7 +13,7 @@
 }
 
 .draggable h3 {
-    display: block;
+    grid-area: title;
     margin: auto;
     padding: 0.5em;
     text-align: center;
@@ -18,10 +21,11 @@
 }
 
 .drag_title {
+    grid-area: subtitle;
     margin: 0.5em 0px 0px 0px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
+    grid-template-areas: "lsubtitle rsubtitle";
+    grid-template-columns: 1fr 1fr;
     border-top-left-radius: var(--drag-border-radius);
     border-top-right-radius: var(--drag-border-radius);
     border: var(--light-bg-color) solid;
@@ -29,16 +33,24 @@
     background-color: var(--strong-bg-color);
 }
 
+.drag_title .left_title {
+    grid-area: lsubtitle;
+}
+
+.drag_title .right_title {
+    grid-area: rsubtitle;
+}
+
 
 /*Four column grid for initial position of draggables*/
 
 .top {
+    grid-area: top;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 1fr;
+    grid-template-rows: repeat(auto, 1fr);
     background-color: var(--strong-bg-color);
     border-radius: var(--drag-border-radius);
-    width: 100%;
     min-height: 70px;
 }
 
@@ -48,9 +60,9 @@
 .left,
 .right {
     display: grid;
+    grid-column: 50% 50%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto 1fr;
-    flex: 50%;
     border: var(--light-bg-color) solid;
     border-width: 0px 1px 1px 1px;
     background-color: var(--llight-bg-color);
@@ -61,10 +73,12 @@
 /*Round outer cornes of left-right pair*/
 
 .left {
+    grid-area: left;
     border-bottom-left-radius: var(--drag-border-radius);
 }
 
 .right {
+    grid-area: right;
     border-bottom-right-radius: var(--drag-border-radius);
 }
 

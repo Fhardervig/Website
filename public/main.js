@@ -28,6 +28,7 @@ function wrong_ILQ(target, txt) {
 function correct_dragquiz(el) {
     el._tippy.enable();
     el._tippy.setContent(el.dataset.correctText ? el.dataset.correctText : "Correct!");
+
 }
 
 function wrong_dragquiz(el) {
@@ -67,22 +68,43 @@ $(".draggable").each(function() {
     })
     /* #endregion */
 
+
+function attachSubTips() {
+    $(".subtip").each(function() {
+        tippy(this, {
+            content: "<p> Despite the fact that $\\alpha=|\\alpha_0|e^{-i(\\omega t-\\phi)}$, this value does not depend on $t$ since $$\\begin{align*}|\\alpha|&=\\alpha^\\ast\\alpha\\\\&=|\\alpha_0|\\cancel{e^{-i(\\omega t-\\phi)}}|\\alpha_0|\\cancel{e^{i(\\omega t-\\phi)}}=|\\alpha_0|^2\\end{align*}$$ </p>",
+            allowHTML: true,
+            interactive: true,
+            theme: 'material',
+            onMount(instance) {
+                MathJax.typesetPromise($(".subtip").siblings("[id^=tippy-]")).then(function() { instance.popperInstance.update(); })
+            }
+        })
+    })
+}
+
+
+
 $(".draggable-element").each(function() {
     tippy(this, {
-        content: '',
+        content: "",
         allowHTML: true,
+        interactive: true,
         maxwidth: 350,
         popperOptions: {
             placement: 'auto'
         },
         onMount(instance) {
-            MathJax.typeset($(".tippy-content"));
-            instance.popperInstance.update()
+            MathJax.typesetPromise($(".tippy-content")).then(function() {
+                attachSubTips();
+                instance.popperInstance.update();
+            });
         }
 
     }).disable()
 })
 
+/* #region  Step by step proofs */
 
 var proofCounters = [];
 var proofLines = [];
@@ -256,3 +278,4 @@ function expandProof(index) {
     proofNextButtons[index].disabled = true;
     renderProofFull(index);
 }
+/* #endregion */

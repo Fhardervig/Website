@@ -119,13 +119,16 @@ h3 {
     font-size: 18px;
 }
 
-.tooltip {
+.tooltip,
+.subtip {
     border-bottom: ridge var(--highlight-text-color);
     border-radius: 5px;
     transition: background-color 0.25s ease;
+    background-color: var(--tooltip-marker-bg-color);
 }
 
-.tooltip:hover {
+.tooltip:hover,
+.subtip:hover {
     border-bottom: ridge var(--light-bg-color);
     background-color: var(--highlight-text-color);
 }
