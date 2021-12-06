@@ -20,7 +20,7 @@
             startup: {
                 pageReady() {
                     return MathJax.startup.defaultPageReady().then(function() {
-                        $.getScript("./resources/coherentStates.js");
+                        $.getScript("./resources/diracNotation.js");
                         $.getScript("./resources/main.js");
                     });
                 }
