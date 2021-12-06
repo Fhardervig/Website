@@ -279,3 +279,44 @@ function expandProof(index) {
     renderProofFull(index);
 }
 /* #endregion */
+
+
+
+/* #region End of paragraph quiz */
+var proofCounters = [];
+var proofLines = [];
+var proofExplanations = [];
+var proofPrevButtons = [];
+var proofNextButtons = [];
+var proofResetButtons = [];
+var proofExpandButtons = [];
+/* Setup */
+$(".big-quiz").each(function(quizIndex, quizBox) {
+    quizBox.classList.add("quiz" + quizIndex);
+    $(".question", quizBox).each(function(questionIndex, questionForm) {
+        questionForm.classList.add("question" + questionIndex);
+        $("input", questionForm).each(function(optionIndex, inputEl) {
+            inputEl.name = "q" + quizIndex + "q" + questionIndex
+        })
+    })
+})
+
+function quizAnswer(form) {
+    $("input", form).each(function() {
+        if (this.checked == true) {
+            if (this.value == "true") {
+                alert("Correct")
+                $(this).next("label").css('color', correctTextColor)
+
+            } else {
+                alert("Wrong")
+                $(this).next("label").css('color', wrongTextColor)
+            }
+        } else {
+            alert("Default")
+            $(this).next("label").css('color', "")
+        }
+    })
+}
+
+/* #endregion */
