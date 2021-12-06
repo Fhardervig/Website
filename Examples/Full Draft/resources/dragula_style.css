@@ -1,0 +1,136 @@
+.draggable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title title" "top top" "subtitle subtitle " "left right";
+    /*display: flex;
+    flex-wrap: wrap;*/
+    background-color: var(--main-bg-color);
+    margin: 10px auto;
+    padding: 0em;
+    /*For wrapping if desired*/
+    width: 100%;
+    height: 100%;
+}
+
+.draggable h3 {
+    grid-area: title;
+    margin: auto;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.drag_title {
+    grid-area: subtitle;
+    margin: 0.5em 0px 0px 0px;
+    display: grid;
+    grid-template-areas: "lsubtitle rsubtitle";
+    grid-template-columns: 1fr 1fr;
+    border-top-left-radius: var(--drag-border-radius);
+    border-top-right-radius: var(--drag-border-radius);
+    border: var(--light-bg-color) solid;
+    border-width: 1px 1px 3px 1px;
+    background-color: var(--strong-bg-color);
+}
+
+.drag_title .left_title {
+    grid-area: lsubtitle;
+}
+
+.drag_title .right_title {
+    grid-area: rsubtitle;
+}
+
+
+/*Four column grid for initial position of draggables*/
+
+.top {
+    grid-area: top;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    background-color: var(--strong-bg-color);
+    border-radius: var(--drag-border-radius);
+    min-height: 70px;
+}
+
+
+/*Answer areas are equal size, and draggables are placed in 2 column grids*/
+
+.left,
+.right {
+    display: grid;
+    grid-column: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    border: var(--light-bg-color) solid;
+    border-width: 0px 1px 1px 1px;
+    background-color: var(--llight-bg-color);
+    min-height: 70px;
+}
+
+
+/*Round outer cornes of left-right pair*/
+
+.left {
+    grid-area: left;
+    border-bottom-left-radius: var(--drag-border-radius);
+}
+
+.right {
+    grid-area: right;
+    border-bottom-right-radius: var(--drag-border-radius);
+}
+
+
+/*Slightly smaller text than body*/
+
+.left>div.draggable-element,
+.right>div.draggable-element,
+.top>div.draggable-element,
+.gu-mirror {
+    font-size: 18px;
+    min-height: 60px;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid var(--tooltip-bg-color);
+    background-color: var(--tooltip-bg-color);
+    transition-property: background-color, border;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.left>div.draggable-element:hover,
+.right>div.draggable-element:hover,
+.top>div.draggable-element:hover,
+.gu-mirror {
+    border: 1px solid var(--dark-bg-color);
+    background-color: var(--light-bg-color);
+}
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2;
+}
