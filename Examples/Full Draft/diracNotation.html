@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Coherent State Quiz</title>
+    <title>Dirac Notation: The Essentials</title>
     <link rel="icon" type="image/x-icon" href="./favicon-32x32.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -15,7 +15,8 @@
                 inlineMath: [
                     ['$', '$'],
                     ['\\(', '\\)']
-                ]
+                ],
+                tags: 'ams'
             },
             startup: {
                 pageReady() {
@@ -86,16 +87,92 @@ max-height:100%;">
                 <figcaption>By creating a linear combination of the outcome probabilities, we can describe the superposition between heads and tails.</figcaption>
 
                 <p> In quantum mechanics, we will not exactly be weighing the outcomes by their probabilities directly, but rather by their <strong>probability amplitudes</strong>, e.g.$$\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
-                    where $\alpha$ and $\beta$ are the probability amplitudes which are <strong>complex numbers</strong>. The actual probability is obtained by taking the <span class="itTooltip" data-content="Remember that the norm of a complex number, $z=a+bi$, is given as $$\begin{align*}|z|=\sqrt{zz^\ast}&=\sqrt{(a+bi)(a-bi)}\\&=\sqrt{a^2+b^2}\end{align*}$$">norm squared</span>                    of our amplitude. If we let our probability amplitude of spin up be the complex number $\alpha=a+bi$, then the probability of spin up, $P_\uparrow$, is given as $$P_\uparrow=|\alpha|^2=\sqrt{a^2+b^2}^2=a^2+b^2$$ while the probability
-                    of spin down, $P_\downarrow$, is given as $$P_\downarrow=|\beta|^2=\sqrt{c^2+d^2}^2=c^2+d^2$$ where we let $\beta=c+di$.</p>
+                    where $\alpha$ and $\beta$ are the probability amplitudes which are <strong>complex numbers</strong>. The actual probability is obtained by taking the <span class="itTooltip" data-content="Remember that the norm of a complex number, $z=a+bi$, is given as $$\begin{align*}|z|=\sqrt{zz^\ast}&=\sqrt{(a+bi)(a-bi)}\\&=\sqrt{a^2+b^2}\end{align*}$$">norm squared</span>                    of our amplitude. If we let our probability amplitude of spin up be the complex number $\alpha=a+bi$, then the probability of spin up, $P_\uparrow$, is given as $$\begin{equation}P_\uparrow=|\alpha|^2=\sqrt{a^2+b^2}^2=a^2+b^2 \label{eq:Pup}\end{equation}$$
+                    while the probability of spin down, $P_\downarrow$, is given as $$P_\downarrow=|\beta|^2=\sqrt{c^2+d^2}^2=c^2+d^2$$ where we let $\beta=c+di$.</p>
 
             </section>
             <p>
-                To re-cap, we can describe quantum states as complex vectors, with entries corresponding to the probability amplitude of measuring an outcome as the corresponding basis vector.
+                To re-cap, we can describe quantum states as <span id="ilqKet1">____</span> vectors, with entries corresponding to the <span id="ilqKet2">____</span> of measuring an outcome as the corresponding basis vector.
+            </p>
+            <p>We will now do a small detour from Dirac notation, to introduce some matrix operations.</p>
+        </section>
+        <section>
+            <h2>Transpose</h2>
+            <p>To <em>transpose</em> is to switch the rows and columns in matrix-like objects while making no changes to the entries themselves. E.g. $$\begin{bmatrix}a&b\\c&d\\e&f\end{bmatrix}^T=\begin{bmatrix}a&c&e\\b&d&f\end{bmatrix} \;\text{ and }\;
+                \begin{pmatrix}a\\b\\c\end{pmatrix}^T=\begin{pmatrix}a&b&c\end{pmatrix}$$ Like the complex conjugate, transposing is an involution, i.e. transposing the same matrix twice leaves us back with the initial matrix: $$\left(A^T\right)^T=\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}^T\right)^T=\begin{bmatrix}a&c\\b&d\end{bmatrix}^T=\begin{bmatrix}a&b\\c&d\end{bmatrix}=A$$
+
             </p>
         </section>
         <section>
+            <h2>Adjoint</h2>
+            <p>The <span class="itTooltip" data-content="Sometimes called the conjugate transpose, Hermitian transpose or Hermitian conjugate"><em>adjoint</em></span> of a matrix-like object is the <strong>same as taking the complex conjugate of the
+                transposed</strong> matrix. In quantum mechanics it is denoted with a dagger, $A^\dagger$. Letting $$\begin{align*} A&=\begin{bmatrix}a+bi&c+di\\e+fi&g+hi\end{bmatrix}\\ &\text{then}\\ A^\dagger&={\left(A^\ast\right)^T}\\&=\begin{bmatrix}a-bi&c-di\\e-fi&g-hi\end{bmatrix}^T\\&=\begin{bmatrix}a-bi&e-fi\\c-di&g-hi\end{bmatrix}
+                \end{align*}$$ Just like both transposing and complex conjugates are involutions, it also holds that $\left(A^\dagger\right)^\dagger=A$. Feel free to confirm this by yourself using the example above.</p>
+        </section>
+        <section>
             <h2>Bra</h2>
+            Returning to our electron spin quantum state, we can take the adjoint of $\ket{\psi}$ in order to obtain: $$\ket{\psi}^\dagger=\begin{pmatrix}\alpha\\\beta\end{pmatrix}^\dagger=\begin{pmatrix}\alpha^\ast&\beta^\ast\end{pmatrix}=\bra{\psi}$$ What's this,
+            our ket flipped? That's right, we're introducing the one and only <strong>bra</strong>, $\bra{\phantom{\psi}}$. The adjoint even let's us convert back and forth between kets and bras. $$\bra{\psi}^\dagger=\begin{pmatrix}\alpha^\ast&\beta^\ast\end{pmatrix}^\dagger=\begin{pmatrix}\alpha\\\beta\end{pmatrix}=\ket{\psi}$$
+        </section>
+        <section>
+            <h2>
+                Inner Product
+            </h2>
+            <p>Finally we know enough to begin seeing why Dirac notation might be useful. The vertical bars almost seems to fit together, and writing $\braket{\psi|\psi}$ we've made our first <strong>bra-ket pair</strong>! We say that this will give us the
+                inner product of $\ket{\psi}$ with respect to itself. The <em>inner product</em> is an extension of the dot product, but will in this reading behave the exact same. As such, it takes in two vectors and <strong>returns a scalar</strong>.
+                Writing out the vectors and performing matrix multiplication, we obtain: $$\begin{equation}\braket{\psi|\psi}=\begin{pmatrix}\alpha^\ast&\beta^\ast\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix}=\alpha^\ast\alpha+\beta^\ast\beta=\class{tooltip}{\cssId{sumNormSqrd}{|\alpha|}}^2+|\beta|^2\qquad
+                \label{eq:selfprj}\end{equation}$$ This looks familiar, namely in eq. $\ref{eq:Pup}$, we saw that $P_\uparrow=|\alpha|^2$, and by extension that $P_\downarrow=|\beta|^2$. As such, by taking the inner product of a state with respect to
+                itself we've extracted the sum of probabilities of all outcomes. </p>
+            <p>For this to make sense physically we need to have a properly normalized state such that, $\braket{\psi|\psi}=1$, much like we need the integral of probability density functions to <span class="itTooltip" data-content="In other words, upon measuring the particle must always be in <em>some</em> state. It's not allowed to simply cease to exist.">equal 1</span>.
+                Note that the inner product of a quantum state with itself, $\braket{\psi|\psi}$, is a special case of the inner product where the resulting probability amplitude and associated probability is the same.
+            </p>
+            <p>While this fact is useful for normalizing our states, the inner product also serves as an exceedingly useful tool since we can use it to extract probability amplitudes of <strong>specific outcomes</strong>. E.g. $$\begin{equation}\braket{\uparrow|\psi}=\begin{pmatrix}1&0\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix}=1\alpha+0\beta=\alpha\label{eq:ampup}\end{equation}$$
+                where we recall that $\alpha$ is the probability amplitude of $\ket{\psi}$ for the outcome $\ket{\uparrow}$. From eq. \ref{eq:selfprj} and eq. \ref{eq:ampup}, we see that $$\braket{\psi|\psi}=|\alpha|^2+|\beta|^2=\left|\braket{\uparrow|\psi}\right|^2+\left|\braket{\downarrow|\psi}\right|^2$$
+                which hints at the fact that we might be able to define an alternative construction of our quantum state by using $\braket{e_n|\psi}$ as the amplitude for basis vector $\vec{e_n}$. For our two state system, instead of $$\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
+                we could say $$\ket{\psi}=\class{tooltip}{\cssId{numvec}{\braket{\uparrow|\psi}\ket{\uparrow}}}+\braket{\downarrow|\psi}\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$ For higher dimensional states with orthonormal basis $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$,
+                with probability amplitudes $a_1, a_2, ..., a_n$, $$\begin{equation}\ket{\psi}=\sum_{i=1}^n a_i\ket{e_i}=\sum_{i=1}^n\braket{e_i|\psi}\ket{e_i}\label{eq:sumstate}\end{equation}$$
+            </p>
+            <div class="example tight">
+                <button class="collapsible">Aside: Inner products as projections</button>
+                <div class="content">
+                    <p>
+                        The following purely for some geometric intuition and is not strictly necessary. <br>Recall that inner products are a generalization of dot products, and that dot products can be used to project one vector, $\vec{v}$, onto another,
+                        $\vec{b}$, by using $\vec{v}_{proj\rightarrow b}=(\hat{b}\cdot\vec{v})\hat{b}$ where $\hat{b}$ is the unit vector of $\vec{b}$. As mentioned above, for our quantum states to make physical sense, any ket we make must be normalized,
+                        and thus the unit vector of any state is the state itself $\hat{\ket{\psi}}=\ket{\psi}$. Re-writing the projection above in Dirac notation, we thus obtain $\ket{\psi_{proj\rightarrow \phi}}=$<span id="ilqInPP1">____</span>, which
+                        looks exactly like the summation in eq. \ref{eq:sumstate}.
+                    </p>
+                </div>
+
+            </div>
+            <p>The inner product carries with it a notion of orthogonality. E.g. we mentioned that our basis $\{\ket{\uparrow},\ket{\downarrow}\}$ is orthonormal. This can be easily confirmed using inner products. $$\begin{align*} \braket{\uparrow|\uparrow}&=\begin{pmatrix}1&0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=1\cdot1+0\cdot0=1\\
+                \braket{\uparrow|\downarrow}&=\begin{pmatrix}1&0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=0\cdot1+1\cdot0=0\\ \braket{\downarrow|\uparrow}&=\begin{pmatrix}0&1\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=1\cdot0+0\cdot1=0\\ \braket{\downarrow|\downarrow}&=\begin{pmatrix}0&1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=0\cdot0+1\cdot1=1
+                \end{align*}$$ Using our intuition from dot products, we see that $\ket{\uparrow}$ and $\ket{\downarrow}$ are orthogonal since $\braket{\uparrow|\downarrow}=\braket{\downarrow|\uparrow}=0$, and normalized since $\braket{\uparrow|\uparrow}=\braket{\downarrow|\downarrow}=1$.
+                <div class="focus">
+                    It is very common to work with orthonormal bases like these, which means that $\braket{e_i|e_j}=\delta_{ij}$, where $\delta_{ij}$ is the Kronecker delta defined as $\delta_{ij}=\left\lbrace\begin{matrix} 0\quad \text{if } i\neq j\\1\quad \text{if } i=
+                    j \end{matrix}\right.$
+                </div>
+            </p>
+            <p>Re-doing our calculation for $\braket{\psi|\psi}$ where instead of using $\ket{\psi}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$ we will use $\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}$, and the fact that we have a orthonormal basis:
+                $$\begin{align*} \braket{\psi|\psi}&=\left(\alpha^\ast\bra{\uparrow}+\beta^\ast\bra{\downarrow}\right)\left(\alpha\ket{\uparrow}+\beta\ket{\downarrow}\right) \\ &=\alpha^\ast\alpha\underbrace{\braket{\uparrow|\uparrow}}_{\delta_{\uparrow\uparrow}=\,1}+\alpha^\ast\beta\underbrace{\braket{\uparrow|\downarrow}}_{\delta_{\uparrow\downarrow}=\,0}+\beta^\ast\alpha\underbrace{\braket{\downarrow|\uparrow}}_{\delta_{\downarrow\uparrow}=\,0}+\beta^\ast\beta\underbrace{\braket{\downarrow|\downarrow}}_{\delta_{\downarrow\downarrow}=\,1}\\
+                &=|\alpha|^2+|\beta|^2 \end{align*}$$ where we've remember that the norm is given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$. Once we move onto an $x,y,z$ basis, the usefulness of this fact will become even clearer, but already now, the intuitiveness
+                of Dirac notation should begin to shine through.</p>
+
+            <p>To re-cap: Inner products extract probability amplitudes. The bra-ket pair takes two <span id="ilqInP1">____</span> and outputs a <span id="ilqInP2">____</span>. The ket is our quantum state which we project onto the bra, in order to obtain
+                the probability amplitude of the ket being in the state of the bra. This is an incredibly powerful tool and as we've seen can also be used to define our quantum states. Lastly, by working with orthonormal bases we can quickly remove terms
+                and simplify our equations using the <span id="ilqInP3">____</span> delta.
+            </p>
+        </section>
+        <section>
+            <h2>
+                Operators
+            </h2>
+            <p>Operators are matrices, and <strong>act as transformations</strong> on our quantum states, just like the transformation matrices from linear algebra. To apply an operator to a ket, you left multiply, $X\ket{\psi}$, while you right multiply
+                to apply them to bras, $\bra{\psi}Y$. Being matrices, they are commutative and associative $$\begin{align*} X+Y&=Y+X\\ X+(Y+Z)&=(X+Y)+Z \end{align*}$$ and all the operators we will be encountering are linear, they satisfy $$X(c_\psi\ket{\psi}+c_\phi\ket{\phi})=c_\psi
+                X\ket{\psi}+c_\phi X\ket{\phi}$$</p>
+            <p>Importantly, <strong>in general, operators do not <span class="itTooltip" data-content="We'll get back to where this word comes from at the end of this article"><em>commute</em></span></strong>, i.e. $XY\neq YX$.<br>Operators are said to be
+                <em>Hermitian</em> if $X=X\class{tooltip}{\cssId{dagger}{^\dagger}}$. Operators are said to be <em>unitary</em> if $U^\dagger U=UU^\dagger =\mathbb{I}$, where $\mathbb{I}$ is the identity matrix. Notice that the adjoint is distributed
+                the following way: $$(XY)^\dagger=Y^\dagger X^\dagger$$
+            </p>
         </section>
         <!-- 
 

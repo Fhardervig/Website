@@ -14,17 +14,16 @@ const wrongTextColor = style.getPropertyValue('--wrong-text-color');
 /* #endregion */
 
 function correct_ILQ(target, txt) {
-    target.html(txt + " &#10004");
+    target.html(txt.concat("&#10004"));
     target.css('color', correctTextColor);
     MathJax.typeset(target)
 }
 
 function wrong_ILQ(target, txt) {
-    target.html(txt + " &#10060");
+    target.html(txt.concat("&#10060"));
     target.css('color', wrongTextColor);
     MathJax.typeset(target)
 }
-
 
 
 function correct_dragquiz(el) {
