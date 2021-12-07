@@ -94,7 +94,7 @@
     padding: 0.5em;
     margin: 0.5em;
     text-align: center;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.6);
     border-radius: 10px;
     border: 1px solid var(--tooltip-bg-color);
     background-color: var(--tooltip-bg-color);

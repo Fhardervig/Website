@@ -1,5 +1,6 @@
 :root {
-    --main-bg-color: #fff2ff;
+    --main-bg-color: #f8eaf2;
+    /*#fff2ff;*/
     /*#e0d0e7;*/
     --dark-bg-color: #714483;
     /* #9381FF; */
@@ -20,4 +21,38 @@
     --correct-color: #7cbe7c;
     --wrong-color: #e93030;
     --drag-border-radius: 15px;
+}
+
+.tippy-box[data-theme~=itt] {
+    background-color: #505355;
+    font-weight: 600
+}
+
+.tippy-box[data-theme~=itt][data-placement^=top]>.tippy-arrow:before {
+    border-top-color: #505355
+}
+
+.tippy-box[data-theme~=itt][data-placement^=bottom]>.tippy-arrow:before {
+    border-bottom-color: #505355
+}
+
+.tippy-box[data-theme~=itt][data-placement^=left]>.tippy-arrow:before {
+    border-left-color: #505355
+}
+
+.tippy-box[data-theme~=itt][data-placement^=right]>.tippy-arrow:before {
+    border-right-color: #505355
+}
+
+.tippy-box[data-theme~=itt]>.tippy-backdrop {
+    background-color: #505355
+}
+
+.tippy-box[data-theme~=itt]>.tippy-svg-arrow {
+    fill: #505355
+}
+
+.tippy-box[data-theme~=itt] a,
+.tippy-box[data-theme~=itt] a:visited {
+    color: red;
 }

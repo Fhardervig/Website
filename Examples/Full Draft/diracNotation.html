@@ -40,42 +40,101 @@
 
 <body>
     <br>
-    <time pubdate datetime="2021-11-28" title="November 28th, 2021"><span>NOV.28.2021</span></time>
+    <time pubdate datetime="2021-12-06" title="December 6th, 2021"><span>DEC.06.2021</span></time>
 
     <h1>
-        Coherent State Quiz
+        Dirac Notation: The essentials
     </h1>
 
-    <address class="author"><span>By Frederik Hardervig</span></address> Sort the quantities below into time independent and time dependent groups by dragging them. It is assumed that the quantities are for coherent states. E.g. Instead of saying "The
-    uncertainty of the position operator for coherent states" we simply say "The uncertainty of the position operator" and put an $\alpha$ in the subscript.
-    <div class="draggable">
-        <h3>Drag these quantities to the cells below</h3>
-        <div class="top" data-answer="default">
-            <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$">The expectation value of position, $\left\langle \hat{x}\right\rangle_\alpha(t)$ </div>
-            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$">The uncertainty of the position operator, $\Delta\hat{x}_\alpha$ </div>
+    <address class="author"><span>By Frederik Hardervig</span></address>
+    <article>
+        <section>
+            <h2>Complex Numbers</h2>
+            <p>I will assume you're already somewhat comfortable with complex numbers, where we introduce the imaginary unit $i=\sqrt{-1}$ to construct complex numbers of the form $z=a+bi$. In quantum mechanics, we often encounter <em>complex conjugates</em>                and the <em>euclidean norm</em>, which we will simply refer to as the <em>norm</em>.</p>
+            <p>The complex conjugate of a complex number $z=a+bi$ is denoted with an asterisk, *, and given as $z^\ast=a-bi$. It's effect is to flip the sign of the imaginary part of any complex number, which also means that it is its <span class="itTooltip"
+                    data-content="In math terms, we'd say it's an <em>involution</em>.">own inverse</span>: $$\left(z^\ast\right)^\ast=\left((a+bi)^\ast\right)^\ast=\left(a-bi\right)^\ast=a+bi=z$$ It is distributive with matrix-like objects, e.g. the vector
+                $\vec{v}=\begin{pmatrix}a+bi\\c+di\end{pmatrix}$ becomes $\vec{v}^\ast=\begin{pmatrix}a-bi\\c-di\end{pmatrix}$. The complex conjugate has no effect on real numbers as there is no imaginary part to change the sign of, e.g. $3^\ast=3$, while
+                it's like multiplying by $-1$ for purely imaginary numbers e.g. $3i^\ast=-3i$.</p>
+            <p>The norm of a complex number, $z=a+bi$ is given as $$|z|=\sqrt{zz^\ast}=\sqrt{(a+bi)(a-bi)}=\sqrt{a^2+b^2}$$ and carries with it a notion of magnitude, as it returns a real number that's equal to the length of the vector $(a,b)$ in <span class="itTooltip"
+                    data-content="I.e. a 2 dimensional coordinate system, where each coordinate is a real number.">$\mathbb{R}^2$</span>. Now, we're ready to introduce Dirac notation.</p>
+        </section>
+        <section>
+            <h2>The Ket</h2>
+            <p>
+                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://www.w3schools.com'>here</a> is another post explaining what a Hilbert space is.">Hilbert space</span>,
+                which, for now, you should just know is a <strong>vector of complex numbers</strong>, $$\ket{\psi}=\begin{pmatrix}a\vec{e_1}\\b\vec{e_2}\\\vdots\\n\vec{e_n}\end{pmatrix}$$ where $a,b,...,n\in\mathbb{C}$ and $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$
+                is our basis.</p>
+            <p>
+                For now, we will constrain out kets to represent finite vectors, but once we move on to wave mechanics, $\ket{\psi}$ might instead be some vector-valued function dependent on position and time $\ket{\psi(x,y,z,t)}$. Throughout this article, we will use
+                the spin state of an electron as our example, but note that <strong>kets can have infinitely many dimensions</strong>.</p>
+            <p>
+                For a simple system, such as the spin state of an electron, once we measure, it can either be up or down, which we'll denote as $\ket{\uparrow}$ and $\ket{\downarrow}$ respectively, and which we'll use as our basis. Since there are two, we'll need a 2
+                dimensional vector to explain this, and we let $$\ket{\uparrow}=\begin{pmatrix}1\\0\end{pmatrix} \;\text{ and }\; \ket{\downarrow}=\begin{pmatrix}0\\1\end{pmatrix}$$ to form an orthonormal basis.
+                <strong>Remember the numerical vectors that these kets represent!</strong> They will make the remaining text much more understandable!
+            </p>
+            <section class="subsection">
+                <h3>Superposition</h3>
+                <p>
+                    Note that I mentioned that the spin of the electron can be either up or down <em>upon measuring</em>. This is a crucial distinction since the quantum state before measurement can be a <span class="itTooltip" data-content="A linear combination is given as $C = a\mathbf{x}+b\mathbf{y}...+n\mathbf{z}$ where $a,b,c$ are scalars, and $x,y,z$ are the objects we're combining.">linear combination</span>                    of up and down.
+                </p>
+                <p>To explain superposition in the context of qubits, I will present the analogy of flipping a coin. Upon landing, it can only be either heads or tails, but while spinning in the air, one could argue that its state is better described as
+                    "50% heads and 50% tails".
+                    <span class="itTooltip" data-content="<a href='https://youtu.be/kv-YXKRUheQ' target='_blank'>This</a> computerphile video does an excellent job of clarifying this, and gives a good introduction to the idea of superposition."><strong>The coin is not both heads and tails at the same time</strong></span>                    as some pop-sci articles might lead you to believe. If you think about the probability of each outcome, then instead of the coin "being both at the same time", you simply add them together to get the probability distribution of the
+                    state. This is what is meant by superposition, and to complete the analogy you can think of heads as $\ket{\uparrow}$ and tails as $\ket{\downarrow}$.</p>
+                <img src="./Linear Combination2.png" style="object-fit:contain; max-width:100%;
+max-height:100%;">
+                <figcaption>By creating a linear combination of the outcome probabilities, we can describe the superposition between heads and tails.</figcaption>
+
+                <p> In quantum mechanics, we will not exactly be weighing the outcomes by their probabilities directly, but rather by their <strong>probability amplitudes</strong>, e.g.$$\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
+                    where $\alpha$ and $\beta$ are the probability amplitudes which are <strong>complex numbers</strong>. The actual probability is obtained by taking the <span class="itTooltip" data-content="Remember that the norm of a complex number, $z=a+bi$, is given as $$\begin{align*}|z|=\sqrt{zz^\ast}&=\sqrt{(a+bi)(a-bi)}\\&=\sqrt{a^2+b^2}\end{align*}$$">norm squared</span>                    of our amplitude. If we let our probability amplitude of spin up be the complex number $\alpha=a+bi$, then the probability of spin up, $P_\uparrow$, is given as $$P_\uparrow=|\alpha|^2=\sqrt{a^2+b^2}^2=a^2+b^2$$ while the probability
+                    of spin down, $P_\downarrow$, is given as $$P_\downarrow=|\beta|^2=\sqrt{c^2+d^2}^2=c^2+d^2$$ where we let $\beta=c+di$.</p>
+
+            </section>
+            <p>
+                To re-cap, we can describe quantum states as complex vectors, with entries corresponding to the probability amplitude of measuring an outcome as the corresponding basis vector.
+            </p>
+        </section>
+        <section>
+            <h2>Bra</h2>
+        </section>
+        <!-- 
 
 
 
-            <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$">The expectation value of momentum, $\left\langle \hat{p}\right\rangle_\alpha(t)$ </div>
-            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$">The uncertainty of the momentum operator, $\Delta\hat{p}_\alpha$ </div>
 
-            <div class="draggable-element" data-answer="independent" data-correct-text="Not quite. Remember that $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$" data-wrong-text="True! There's a $t$ in $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$">The expectation value of energy, $\langle \hat{H}\rangle_\alpha(t)$ </div>
-            <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$">The uncertainty of the energy operator, $\Delta\hat{H}_\alpha$ </div>
+
+
+
+                
+            -->
+        <div class="draggable">
+            <h3>Drag these quantities to the cells below</h3>
+            <div class="top" data-answer="default">
+                <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{x}\right\rangle_\alpha(t)=\sqrt{\frac{2\hbar}{m\omega}}\left|\alpha_0\right|\cos{\left(\omega t-\phi\right)}$$">The expectation value of position, $\left\langle \hat{x}\right\rangle_\alpha(t)$ </div>
+                <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{x}_\alpha=\sqrt{\frac{\hbar}{2m\omega}}$$">The uncertainty of the position operator, $\Delta\hat{x}_\alpha$ </div>
+
+
+
+                <div class="draggable-element" data-answer="dependent" data-correct-text="True! There's a $t$ in $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$" data-wrong-text="Not quite. Remember that $$\left\langle \hat{p}\right\rangle_\alpha(t)=-\sqrt{2m\hbar\omega}\left|\alpha_0\right|\sin{\left(\omega t-\phi\right)}$$">The expectation value of momentum, $\left\langle \hat{p}\right\rangle_\alpha(t)$ </div>
+                <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{p}_\alpha=\sqrt{\frac{m\hbar\omega}{2}}$$">The uncertainty of the momentum operator, $\Delta\hat{p}_\alpha$ </div>
+
+                <div class="draggable-element" data-answer="independent" data-correct-text="Not quite. Remember that $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$" data-wrong-text="True! There's a $t$ in $$\langle \hat{H}\rangle_\alpha(t)=\hbar\omega\left(\left|\alpha_0\right|^2+\frac{1}{2}\right)$$">The expectation value of energy, $\langle \hat{H}\rangle_\alpha(t)$ </div>
+                <div class="draggable-element" data-answer="independent" data-correct-text="True! There's no $t$ in $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$" data-wrong-text="Not quite. Remember that $$\Delta\hat{H}_\alpha=\hbar\omega\class{subtip alphanorm}{\left|\alpha\right|}$$">The uncertainty of the energy operator, $\Delta\hat{H}_\alpha$ </div>
+            </div>
+
+
+
+            <div class="drag_title">
+                <h3 class="left_title">Time independent </h3>
+                <h3 class="right_title">Time dependent</h3>
+            </div>
+            <div class="left" data-answer="independent">
+            </div>
+            <div class="right" data-answer="dependent">
+
+            </div>
+
         </div>
 
-
-
-        <div class="drag_title">
-            <h3 class="left_title">Time independent </h3>
-            <h3 class="right_title">Time dependent</h3>
-        </div>
-        <div class="left" data-answer="independent">
-        </div>
-        <div class="right" data-answer="dependent">
-
-        </div>
-
-    </div>
-
-
+    </article>
 </body>

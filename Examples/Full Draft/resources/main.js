@@ -25,6 +25,8 @@ function wrong_ILQ(target, txt) {
     MathJax.typeset(target)
 }
 
+
+
 function correct_dragquiz(el) {
     el._tippy.enable();
     el._tippy.setContent(el.dataset.correctText ? el.dataset.correctText : "Correct!");
@@ -47,6 +49,21 @@ $(".collapsible").each(function() {
         }
     });
 })
+
+$(".itTooltip").each(function() {
+    tippy(this, {
+        content: this.getAttribute("data-content"),
+        allowHTML: true,
+        interactive: true,
+        maxwidth: 350,
+        theme: 'itt',
+        onMount(instance) {
+            MathJax.typeset($('.tippy-content'));
+            instance.popperInstance.update();
+        }
+    })
+})
+
 
 
 /* #region Drag n ' Drop for page */
