@@ -37,14 +37,15 @@ function wrong_dragquiz(el) {
     el._tippy.setContent(el.dataset.wrongText ? el.dataset.wrongText : "That's not quite right.<br>Can you figure out why?");
 }
 
+/* Incomplete padding. Doesn't collapse fully, needs to also reset padding. Store in data-* */
 $(".collapsible").each(function() {
     this.addEventListener("click", function() {
         this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
+        var content = $(this).siblings('.content');
+        if (content.css("maxHeight") != '0px') {
+            content.css("maxHeight", 0);
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            content.css("maxHeight", content.prop('scrollHeight') + "px");
         }
     });
 })

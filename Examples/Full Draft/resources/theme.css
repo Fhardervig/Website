@@ -6,7 +6,8 @@
     /* #9381FF; */
     --light-bg-color: #c074df;
     /* #B8B8FF; */
-    --llight-bg-color: #ffeaff;
+    --llight-bg-color: #f7dae9;
+    /*#ffeaff;*/
     /* #F8F7FF; */
     --strong-bg-color: #9381FF;
     /*  #FFD8BE; */
@@ -22,6 +23,7 @@
     --ILQ-text: #fffafa;
     --itt-fill: #714483;
     --itt-text: #fffafa;
+    --shadow-color: rgba(0, 0, 0, 0.4);
     /* #FFEEDD; */
 }
 
@@ -30,6 +32,8 @@
 
 .tippy-box {
     font-size: 18px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .tippy-box[data-theme~=itt] {
@@ -64,8 +68,6 @@
     line-height: 2em;
     border-radius: 10px;
     text-align: left;
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
 
 .tippy-box[data-theme~=ILQ]>.tippy-backdrop {
