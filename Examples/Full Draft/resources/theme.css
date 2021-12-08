@@ -8,12 +8,9 @@
     /* #B8B8FF; */
     --llight-bg-color: #ffeaff;
     /* #F8F7FF; */
-    --tooltip-marker-bg-color: #d4a3e740;
-    --tooltip-bg-color: #c67ce4;
-    /* #FFEEDD; */
     --strong-bg-color: #9381FF;
     /*  #FFD8BE; */
-    --highlight-text-color: #d4a3e780;
+    --highlight-text-color: #d4a3e7cb;
     /* #d4a3e780; */
     --off-white: #fffafa;
     --correct-text-color: green;
@@ -21,38 +18,56 @@
     --correct-color: #7cbe7c;
     --wrong-color: #e93030;
     --drag-border-radius: 15px;
+    --ILQ-fill: #714483;
+    --ILQ-text: #fffafa;
+    /* #FFEEDD; */
 }
+
+
+/* For changing the various tooltip themes */
 
 .tippy-box[data-theme~=itt] {
-    background-color: #505355;
-    font-weight: 600
+    background-color: var(--ILQ-fill);
 }
 
+.tippy-box[data-theme~=itt]>.tippy-backdrop,
+.tippy-box[data-theme~=itt][data-placement^=right]>.tippy-arrow:before,
+.tippy-box[data-theme~=itt][data-placement^=left]>.tippy-arrow:before,
+.tippy-box[data-theme~=itt][data-placement^=bottom]>.tippy-arrow:before,
 .tippy-box[data-theme~=itt][data-placement^=top]>.tippy-arrow:before {
-    border-top-color: #505355
-}
-
-.tippy-box[data-theme~=itt][data-placement^=bottom]>.tippy-arrow:before {
-    border-bottom-color: #505355
-}
-
-.tippy-box[data-theme~=itt][data-placement^=left]>.tippy-arrow:before {
-    border-left-color: #505355
-}
-
-.tippy-box[data-theme~=itt][data-placement^=right]>.tippy-arrow:before {
-    border-right-color: #505355
-}
-
-.tippy-box[data-theme~=itt]>.tippy-backdrop {
-    background-color: #505355
+    background-color: var(--ILQ-fill)
 }
 
 .tippy-box[data-theme~=itt]>.tippy-svg-arrow {
-    fill: #505355
+    fill: var(--ILQ-fill)
 }
+
+
+/* Make links red to stand out */
 
 .tippy-box[data-theme~=itt] a,
 .tippy-box[data-theme~=itt] a:visited {
     color: red;
+}
+
+.tippy-box[data-theme~=ILQ] {
+    background-color: var(--ILQ-fill);
+    color: var(--ILQ-text);
+    line-height: 2.3em;
+    border-radius: 10px;
+    text-align: left;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.tippy-box[data-theme~=ILQ]>.tippy-backdrop,
+.tippy-box[data-theme~=ILQ][data-placement^=right]>.tippy-arrow:before,
+.tippy-box[data-theme~=ILQ][data-placement^=left]>.tippy-arrow:before,
+.tippy-box[data-theme~=ILQ][data-placement^=bottom]>.tippy-arrow:before,
+.tippy-box[data-theme~=ILQ][data-placement^=top]>.tippy-arrow:before {
+    background-color: var(--ILQ-fill)
+}
+
+.tippy-box[data-theme~=ILQ]>.tippy-svg-arrow {
+    fill: var(--ILQ-fill)
 }

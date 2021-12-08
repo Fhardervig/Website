@@ -62,7 +62,7 @@
         <section>
             <h2>The Ket</h2>
             <p>
-                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://www.w3schools.com'>here</a> is another post explaining what a Hilbert space is.">Hilbert space</span>,
+                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://www.w3schools.com'>here</a> is another post explaining what a Hilbert space is."><strong>Hilbert space</strong></span>,
                 which, for now, you should just know is a <strong>vector of complex numbers</strong>, $$\ket{\psi}=\begin{pmatrix}a\vec{e_1}\\b\vec{e_2}\\\vdots\\n\vec{e_n}\end{pmatrix}$$ where $a,b,...,n\in\mathbb{C}$ and $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$
                 is our basis.</p>
             <p>
@@ -92,7 +92,8 @@ max-height:100%;">
 
             </section>
             <p>
-                To re-cap, we can describe quantum states as <span id="ilqKet1">____</span> vectors, with entries corresponding to the <span id="ilqKet2">____</span> of measuring an outcome as the corresponding basis vector.
+                <h3>Recap:</h3>
+                We can describe quantum states as <span id="ilqKet1">____</span> vectors, with entries corresponding to the <span id="ilqKet2">____</span> of measuring an outcome as the corresponding basis vector.
             </p>
             <p>We will now do a small detour from Dirac notation, to introduce some matrix operations.</p>
         </section>
@@ -136,10 +137,10 @@ max-height:100%;">
                 <button class="collapsible">Aside: Inner products as projections</button>
                 <div class="content">
                     <p>
-                        The following purely for some geometric intuition and is not strictly necessary. <br>Recall that inner products are a generalization of dot products, and that dot products can be used to project one vector, $\vec{v}$, onto another,
-                        $\vec{b}$, by using $\vec{v}_{proj\rightarrow b}=(\hat{b}\cdot\vec{v})\hat{b}$ where $\hat{b}$ is the unit vector of $\vec{b}$. As mentioned above, for our quantum states to make physical sense, any ket we make must be normalized,
-                        and thus the unit vector of any state is the state itself $\hat{\ket{\psi}}=\ket{\psi}$. Re-writing the projection above in Dirac notation, we thus obtain $\ket{\psi_{proj\rightarrow \phi}}=$<span id="ilqInPP1">____</span>, which
-                        looks exactly like the summation in eq. \ref{eq:sumstate}.
+                        I will now cover a bit of geometric intuition for the inner product. Recall that inner products are a generalization of dot products, and that dot products can be used to project one vector, $\vec{v}$, onto another, $\vec{b}$, by using $\vec{v}_{proj\rightarrow
+                        b}=(\hat{b}\cdot\vec{v})\hat{b}$ where $\hat{b}$ is the unit vector of $\vec{b}$. As mentioned above, for our quantum states to make physical sense, any ket we make must be normalized, and thus the unit vector of any state is the
+                        state itself $\hat{\ket{\psi}}=\ket{\psi}$. Re-writing the projection above in Dirac notation, we thus obtain $\ket{\psi_{proj\rightarrow \phi}}=$<span id="ilqInPP1">____</span>, which looks exactly like
+                        the summation in eq. \ref{eq:sumstate}.
                     </p>
                 </div>
 
@@ -157,9 +158,11 @@ max-height:100%;">
                 &=|\alpha|^2+|\beta|^2 \end{align*}$$ where we've remember that the norm is given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$. Once we move onto an $x,y,z$ basis, the usefulness of this fact will become even clearer, but already now, the intuitiveness
                 of Dirac notation should begin to shine through.</p>
 
-            <p>To re-cap: Inner products extract probability amplitudes. The bra-ket pair takes two <span id="ilqInP1">____</span> and outputs a <span id="ilqInP2">____</span>. The ket is our quantum state which we project onto the bra, in order to obtain
-                the probability amplitude of the ket being in the state of the bra. This is an incredibly powerful tool and as we've seen can also be used to define our quantum states. Lastly, by working with orthonormal bases we can quickly remove terms
-                and simplify our equations using the <span id="ilqInP3">____</span> delta.
+            <p>
+                <h3>Recap:</h3>
+                Inner products extract probability amplitudes. The bra-ket pair takes two <span id="ilqInP1">____</span> and outputs a <span id="ilqInP2">____</span>. The ket is our quantum state which we project onto the bra, in order to obtain the probability
+                amplitude of the ket being in the state of the bra. This is an incredibly powerful tool and as we've seen can also be used to define our quantum states. Lastly, by working with orthonormal bases we can quickly remove terms and simplify
+                our equations using the <span id="ilqInP3">____</span> delta.
             </p>
         </section>
         <section>
@@ -169,11 +172,51 @@ max-height:100%;">
             <p>Operators are matrices, and <strong>act as transformations</strong> on our quantum states, just like the transformation matrices from linear algebra. To apply an operator to a ket, you left multiply, $X\ket{\psi}$, while you right multiply
                 to apply them to bras, $\bra{\psi}Y$. Being matrices, they are commutative and associative $$\begin{align*} X+Y&=Y+X\\ X+(Y+Z)&=(X+Y)+Z \end{align*}$$ and all the operators we will be encountering are linear, they satisfy $$X(c_\psi\ket{\psi}+c_\phi\ket{\phi})=c_\psi
                 X\ket{\psi}+c_\phi X\ket{\phi}$$</p>
-            <p>Importantly, <strong>in general, operators do not <span class="itTooltip" data-content="We'll get back to where this word comes from at the end of this article"><em>commute</em></span></strong>, i.e. $XY\neq YX$.<br>Operators are said to be
-                <em>Hermitian</em> if $X=X\class{tooltip}{\cssId{dagger}{^\dagger}}$. Operators are said to be <em>unitary</em> if $U^\dagger U=UU^\dagger =\mathbb{I}$, where $\mathbb{I}$ is the identity matrix. Notice that the adjoint is distributed
-                the following way: $$(XY)^\dagger=Y^\dagger X^\dagger$$
+            <p>Importantly, <strong>in general, operators do not <span class="itTooltip" data-content="We'll get back to where this word comes from at the end of this article"><em>commute</em></span></strong>, i.e. $XY\neq YX$. Operators are said to be
+                <em>Hermitian</em> if they equal their <span class="itTooltip" data-content="Recall the adjoint is denoted by the dagger, $\dagger$, and represents taking the transpose and complex conjugate, i.e. $X^\dagger={X^T}^\ast$">adjoint</span>,
+                $X=X^\dagger$. Operators are said to be <em>unitary</em> if $U^\dagger U=UU^\dagger =\mathbb{I}$, where $\mathbb{I}$ is the identity matrix. Notice that the order of operators is <span class="itTooltip" data-content="Sometimes know as being anti-distributive">swapped</span>                when the adjoint is distributed: $$(XY)^\dagger=Y^\dagger X^\dagger$$
+            </p>
+            <p>A concrete example of an operator is the Pauli-x operator in 2d, $\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix}$, which flips the amplitudes of the quantum state. As a short (optional) exercise, what quantum state does $\sigma_x\ket{\uparrow}$
+                equal?
+                <br> Answer:
+                <span id="ilqOP1">____</span>
+            </p>
+            <p class="focus">
+                We will be working a lot with operators acting on an <em>eigenstate</em> (i.e. an eigenvector). Re-call from linear algebra that this means that applying the operator to the state will return a scalar multiple of the state, $X_\psi\ket{\psi}=c_\psi\ket{\psi}$,
+                where $c_\psi$ is the eigenvalue associated with the eigenstate and operators. For hermitian operators the eigenvalue will always be real, while non-hermitian operators might have complex eigenvalues.
             </p>
         </section>
+        <section>
+            <h2>Outer Products</h2>
+            <p>
+                Now that we've seen that the inner product $\braket{\phi|\psi}$ provides a scalar, we can begin thinking about the outer product $\ket{\psi}\bra{\phi}$. This results in an operator, i.e. a matrix. The adjoint of an operator $X=\ket{\psi}\bra{\phi}$, is
+                given as $X^\dagger=\ket{\phi}\bra{\psi}$. As we've shown in eq. $\ref{eq:sumstate}$, we can denote a quantum state by a summation, $$\begin{equation}\ket{\psi}=\sum_{i=1}^n a_i\ket{e_i}=\sum_{i=1}^n \ket{e_i}a_i=\sum_{i=1}^n\ket{e_i}\braket{e_i|\psi}\label{eq:outerstate}\end{equation}$$
+                Since kets and bras are <span class="itTooltip" data-content="$(\ket{\psi}\bra{\phi})\cdot\ket{\gamma}=\ket{\psi}\cdot(\braket{\phi|\gamma})$"><em>associative</em></span>, eq. $\ref{eq:outerstate}$ shows that <span class="itTooltip"
+                    data-content="$$\begin{align*}
+\mathbb{I}\ket{\psi}&=\ket{\psi}\\
+&=\sum_{i=1}^n\ket{e_i}\braket{e_i|\psi}\\
+&=\left(\sum_{i=1}^n\ket{e_i}\bra{e_i}\right)\ket{\psi}\\
+\end{align*}$$">$\sum_{i=1}^n\ket{e_i}\bra{e_i}=\mathbb{I}$</span>.</p>
+            <p>The result above is known as closure or the completeness relation. The reason this is worth pointing out, is that it gives us an invaluable tool for our algebra, namely that much like we can multiply by 1 wherever we want in regular algebra,
+                we can likewise insert $\sum_{i=1}^n\ket{e_i}\bra{e_i}$ wherever we want.</p>
+            <div class="example tight">
+                <button class="collapsible">Aside: "Illegal Products"</button>
+                <div class="content">
+                    <p>
+                        To emphasize the rules of multiplication in Dirac notation, the following products are non-sensical: $$\begin{align*} \ket{\psi}X\\ X\bra{\psi}\\ \ket{\psi}\ket{\phi}\\ \bra{\psi}\bra{\phi} \end{align*}$$ When you get further into quantum mechanics, you
+                        might begin encountering the latter two (ket times ket, and bra times bra), but that's because they're shorthand for the tensor product, $\ket{\psi}\otimes\ket{\phi}$, between two kets from different vector spaces.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Commutators</h2>
+            Remember how we said that $X$ and $Y$ generally don't commutate, which is the same as stating that $XY\neq YX$? From this, we can build an object, the <strong>commutator</strong>, which is $0$ if two operators commutate. We denote it as $[X,Y]=XY-YX$,
+            which is clearly only $0$ if $XY=YX$.
+        </section>
+        <section>
+            <h2>Final thoughts</h2>
+            Hello</section>
         <!-- 
 
 

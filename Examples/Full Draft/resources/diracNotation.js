@@ -65,22 +65,22 @@ tippy("#ilqInP3", {
     }
 })
 
-tippy("#sumNormSqrd", {
-    content: 'Remember that $|\\alpha|=\\sqrt{\\alpha^\\ast\\alpha}$',
+tippy("#ilqOP1", {
+    content: '<input type="radio" name="OP1" id="OP11" value="$\\ket{\\uparrow}$ isn\'t quite right." onclick=wrong_ILQ($("#ilqOP1"),this.value)> <label for="OP11">$\\ket{\\uparrow}$</label><br>   <input type = "radio" name="OP1" id = "OP12" value="Correct! $\\sigma_x\\ket{\\uparrow}=\\ket{\\downarrow}$ since $\\sigma_x\\ket{\\uparrow}=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\begin{pmatrix}1\\\\0\\end{pmatrix}=\\begin{pmatrix}0\\\\1\\end{pmatrix}=\\ket{\\downarrow}$" onclick=correct_ILQ($("#ilqOP1"),this.value)> <label for="OP12">$\\ket{\\downarrow}$</label><br><input type = "radio" name="OP1" id = "OP13" value="$0$ isn\'t quite right." onclick=wrong_ILQ($("#ilqOP1"),this.value)> <label for="OP13">$0$</label>',
     allowHTML: true,
     interactive: true,
-    theme: 'itt',
+    theme: "ILQ",
     onMount(instance) {
         MathJax.typeset($('.tippy-content'));
         instance.popperInstance.update();
     }
 })
-tippy("#dagger", {
-    content: '<span style="minwidth: 300px">The dagger signifies the adjoint introduced earlier, i.e. $X^\\dagger={X^T}^\\ast$</span>',
+
+tippy("#sumNormSqrd", {
+    content: 'Remember that $|\\alpha|=\\sqrt{\\alpha^\\ast\\alpha}$',
     allowHTML: true,
     interactive: true,
     theme: 'itt',
-    maxwidth: 350,
     onMount(instance) {
         MathJax.typeset($('.tippy-content'));
         instance.popperInstance.update();
