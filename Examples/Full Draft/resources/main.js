@@ -246,6 +246,10 @@ function renderProofFull(index) {
             this._tippy.enable()
         });
     })
+    proofExplanations[index].each(function() {
+        this.style.display = "";
+
+    })
 
 }
 
@@ -299,6 +303,7 @@ function expandProof(index) {
 
 
 /* #region End of paragraph quiz */
+/* Setup 
 var proofCounters = [];
 var proofLines = [];
 var proofExplanations = [];
@@ -306,7 +311,6 @@ var proofPrevButtons = [];
 var proofNextButtons = [];
 var proofResetButtons = [];
 var proofExpandButtons = [];
-/* Setup */
 $(".big-quiz").each(function(quizIndex, quizBox) {
     quizBox.classList.add("quiz" + quizIndex);
     $(".question", quizBox).each(function(questionIndex, questionForm) {
@@ -333,6 +337,5 @@ function quizAnswer(form) {
             $(this).next("label").css('color', "")
         }
     })
-}
-
+} */
 /* #endregion */

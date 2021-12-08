@@ -44,7 +44,7 @@
     <time pubdate datetime="2021-12-06" title="December 6th, 2021"><span>DEC.06.2021</span></time>
 
     <h1>
-        Dirac Notation: The essentials
+        Dirac Notation:<br>The essentials
     </h1>
 
     <address class="author"><span>By Frederik Hardervig</span></address>
@@ -154,9 +154,28 @@ max-height:100%;">
                 </div>
             </p>
             <p>Re-doing our calculation for $\braket{\psi|\psi}$ where instead of using $\ket{\psi}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$ we will use $\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}$, and the fact that we have a orthonormal basis:
-                $$\begin{align*} \braket{\psi|\psi}&=\left(\alpha^\ast\bra{\uparrow}+\beta^\ast\bra{\downarrow}\right)\left(\alpha\ket{\uparrow}+\beta\ket{\downarrow}\right) \\ &=\alpha^\ast\alpha\underbrace{\braket{\uparrow|\uparrow}}_{\delta_{\uparrow\uparrow}=\,1}+\alpha^\ast\beta\underbrace{\braket{\uparrow|\downarrow}}_{\delta_{\uparrow\downarrow}=\,0}+\beta^\ast\alpha\underbrace{\braket{\downarrow|\uparrow}}_{\delta_{\downarrow\uparrow}=\,0}+\beta^\ast\beta\underbrace{\braket{\downarrow|\downarrow}}_{\delta_{\downarrow\downarrow}=\,1}\\
-                &=|\alpha|^2+|\beta|^2 \end{align*}$$ where we've remember that the norm is given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$. Once we move onto an $x,y,z$ basis, the usefulness of this fact will become even clearer, but already now, the intuitiveness
-                of Dirac notation should begin to shine through.</p>
+                <div class="sbs-proof">
+                    <div class="proof-navigation">
+                        <button class="proof-prev-button" , onclick="prevProofStep(this.value)">&#9651</button>
+                        <button class="proof-next-button" , onclick="nextProofStep(this.value)">&#9661</button>
+                        <button class="proof-reset-button" , onclick="resetProof(this.value)">&#8634</button>
+                        <button class="proof-expand-button" , onclick="expandProof(this.value)">&#x26F6</button>
+                    </div>
+                    <div class="proof-equations">
+                        <div>$\begin{align*} \braket{\psi|\psi}&=\left(\alpha^\ast\bra{\uparrow}+\beta^\ast\bra{\downarrow}\right)\left(\alpha\ket{\uparrow}+\beta\ket{\downarrow}\right) \\ &=\alpha^\ast\alpha\underbrace{\braket{\uparrow|\uparrow}}_{\delta_{\uparrow\uparrow}=\,1}+\alpha^\ast\beta\underbrace{\braket{\uparrow|\downarrow}}_{\delta_{\uparrow\downarrow}=\,0}+\beta^\ast\alpha\underbrace{\braket{\downarrow|\uparrow}}_{\delta_{\downarrow\uparrow}=\,0}+\beta^\ast\beta\underbrace{\braket{\downarrow|\downarrow}}_{\delta_{\downarrow\downarrow}=\,1}\\
+                            &=|\alpha|^2+|\beta|^2 \end{align*}$
+                        </div>
+                    </div>
+                    <div class="proof-explanation">
+                        <div class="step">Step 1: $$\bra{\psi}=\class{tooltip}{\cssId{conjBra}{\alpha^\ast\bra{\uparrow}}}+\beta^\ast\bra{\downarrow}\;\text{ multiplied by }\;\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}$$</div>
+                        <div class="step">Step 2: When distributing the parentheses, we can move around scalars freely, but must maintain the order of bras and kets.</div>
+                        <div class="step">Step 3: Since $\ket{\uparrow}$ and $\ket{\downarrow}$ are <span class="itTooltip" data-content="$$\begin{align*} \braket{\uparrow|\uparrow}&=1\\
+                \braket{\uparrow|\downarrow}&=0\\ \braket{\downarrow|\uparrow}&=0\\ \braket{\downarrow|\downarrow}&=1
+                \end{align*}$$">orthonormal</span>, we can use the shown Kronecker deltas to simplify the equation. Additionally, we recall that norms are given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$.</div>
+                    </div>
+
+                </div>
+                Once we move onto an $x,y,z$ basis, the usefulness of this fact will become even clearer, but already now, the intuitiveness of Dirac notation should begin to shine through.</p>
 
             <p>
                 <h3>Recap:</h3>

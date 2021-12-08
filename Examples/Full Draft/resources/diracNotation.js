@@ -98,6 +98,17 @@ tippy("#numvec", {
     }
 })
 
+tippy("#conjBra", {
+    content: 'Remember that $\\bra{\\psi}=\\ket{\\psi}^\\dagger=\\alpha^\\dagger\\ket{\\uparrow}^\\dagger+\\beta^\\dagger\\ket{\\downarrow}^\\dagger$. Since $\\alpha$ and $\\beta$ are scalars, $\\alpha^\\dagger=\\alpha^\\ast$.',
+    allowHTML: true,
+    interactive: true,
+    theme: 'itt',
+    onMount(instance) {
+        MathJax.typeset($('.tippy-content'));
+        instance.popperInstance.update();
+    }
+})
+
 /* #region  Tooltip all Pauli X's */
 $(".pauliX").each(function() {
         tippy(this, {

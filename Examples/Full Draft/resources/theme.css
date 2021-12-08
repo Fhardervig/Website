@@ -20,26 +20,34 @@
     --drag-border-radius: 15px;
     --ILQ-fill: #714483;
     --ILQ-text: #fffafa;
+    --itt-fill: #714483;
+    --itt-text: #fffafa;
     /* #FFEEDD; */
 }
 
 
 /* For changing the various tooltip themes */
 
-.tippy-box[data-theme~=itt] {
-    background-color: var(--ILQ-fill);
+.tippy-box {
+    font-size: 18px;
 }
 
-.tippy-box[data-theme~=itt]>.tippy-backdrop,
+.tippy-box[data-theme~=itt] {
+    background-color: var(--itt-fill);
+    color: var(--itt-text);
+    text-align: center;
+}
+
+.tippy-box[data-theme~=itt]>.tippy-backdrop {
+    background-color: var(--itt-fill)
+}
+
 .tippy-box[data-theme~=itt][data-placement^=right]>.tippy-arrow:before,
 .tippy-box[data-theme~=itt][data-placement^=left]>.tippy-arrow:before,
 .tippy-box[data-theme~=itt][data-placement^=bottom]>.tippy-arrow:before,
-.tippy-box[data-theme~=itt][data-placement^=top]>.tippy-arrow:before {
-    background-color: var(--ILQ-fill)
-}
-
+.tippy-box[data-theme~=itt][data-placement^=top]>.tippy-arrow:before,
 .tippy-box[data-theme~=itt]>.tippy-svg-arrow {
-    fill: var(--ILQ-fill)
+    fill: var(--itt-fill)
 }
 
 
@@ -53,21 +61,21 @@
 .tippy-box[data-theme~=ILQ] {
     background-color: var(--ILQ-fill);
     color: var(--ILQ-text);
-    line-height: 2.3em;
+    line-height: 2em;
     border-radius: 10px;
     text-align: left;
     padding-top: 3px;
     padding-bottom: 3px;
 }
 
-.tippy-box[data-theme~=ILQ]>.tippy-backdrop,
+.tippy-box[data-theme~=ILQ]>.tippy-backdrop {
+    background-color: var(--ILQ-fill);
+}
+
 .tippy-box[data-theme~=ILQ][data-placement^=right]>.tippy-arrow:before,
 .tippy-box[data-theme~=ILQ][data-placement^=left]>.tippy-arrow:before,
 .tippy-box[data-theme~=ILQ][data-placement^=bottom]>.tippy-arrow:before,
-.tippy-box[data-theme~=ILQ][data-placement^=top]>.tippy-arrow:before {
-    background-color: var(--ILQ-fill)
-}
-
+.tippy-box[data-theme~=ILQ][data-placement^=top]>.tippy-arrow:before,
 .tippy-box[data-theme~=ILQ]>.tippy-svg-arrow {
     fill: var(--ILQ-fill)
 }
