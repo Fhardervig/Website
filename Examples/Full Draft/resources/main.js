@@ -113,6 +113,7 @@ $(".draggable-element").each(function() {
         allowHTML: true,
         interactive: true,
         maxwidth: 350,
+        theme: 'itt',
         popperOptions: {
             placement: 'auto'
         },
