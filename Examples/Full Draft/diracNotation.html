@@ -62,7 +62,7 @@
         <section>
             <h2>The Ket</h2>
             <p>
-                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://youtu.be/dQw4w9WgXcQ'>here</a> is another post explaining what a Hilbert space is."><strong>Hilbert space</strong></span>,
+                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://granite-aragon-dea.notion.site/Hilbert-Space-677cd56388f14e209545d7adb0dc4f41'>here</a> is another post explaining what a Hilbert space is."><strong>Hilbert space</strong></span>,
                 which, for now, you should just know is a <strong>vector of complex numbers</strong>, $$\ket{\psi}=\begin{pmatrix}a\vec{e_1}\\b\vec{e_2}\\\vdots\\n\vec{e_n}\end{pmatrix}$$ where $a,b,...,n\in\mathbb{C}$ and $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$
                 is our basis.</p>
             <p>
@@ -127,14 +127,15 @@ max-height:100%;">
                 Writing out the vectors and performing matrix multiplication, we obtain: $$\begin{equation}\braket{\psi|\psi}=\begin{pmatrix}\alpha^\ast&\beta^\ast\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix}=\alpha^\ast\alpha+\beta^\ast\beta=\class{tooltip}{\cssId{sumNormSqrd}{|\alpha|}}^2+|\beta|^2\qquad
                 \label{eq:selfprj}\end{equation}$$ This looks familiar, namely in eq. $\ref{eq:Pup}$, we saw that $P_\uparrow=|\alpha|^2$, and by extension that $P_\downarrow=|\beta|^2$. As such, by taking the inner product of a state with respect to
                 itself we've extracted the sum of probabilities of all outcomes. </p>
-            <p>For this to make sense physically we need to have a properly normalized state such that, $\braket{\psi|\psi}=1$, much like we need the integral of probability density functions to <span class="itTooltip" data-content="In other words, upon measuring the particle must always be in <em>some</em> state. It's not allowed to simply cease to exist.">equal 1</span>.
-                Note that the inner product of a quantum state with itself, $\braket{\psi|\psi}$, is a special case of the inner product where the resulting probability amplitude and associated probability is the same.
+            <p>For this to make sense physically we need to have a properly normalized state such that, $\braket{\psi|\psi}=1$, much like we need the integral of probability density functions to <span class="itTooltip" data-content="In other words, upon <span class='prototypeitTooltip' data-content='We will not get into a discussion on what constitutes measurement, but using our electron spin as an example, if we try to observe it optically, it must collide with a photon which would clearly disturb it as we\'re essentially hitting it with a baseball bat.'>measuring</span>, the particle must always be in <em>some</em> state. It's not allowed to simply cease to exist.">equal
+                1
+                </span>. Note that the inner product of a quantum state with itself, $\braket{\psi|\psi}$, is a special case of the inner product where the resulting probability amplitude and associated probability is the same.
             </p>
             <p>While this fact is useful for normalizing our states, the inner product also serves as an exceedingly useful tool since we can use it to extract probability amplitudes of <strong>specific outcomes</strong>. E.g. $$\begin{equation}\braket{\uparrow|\psi}=\begin{pmatrix}1&0\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix}=1\alpha+0\beta=\alpha\label{eq:ampup}\end{equation}$$
-                where we recall that $\alpha$ is the probability amplitude of $\ket{\psi}$ for the outcome $\ket{\uparrow}$. From eq. \ref{eq:selfprj} and eq. \ref{eq:ampup}, we see that $$\braket{\psi|\psi}=|\alpha|^2+|\beta|^2=\left|\braket{\uparrow|\psi}\right|^2+\left|\braket{\downarrow|\psi}\right|^2$$
-                which hints at the fact that we might be able to define an alternative construction of our quantum state by using $\braket{e_n|\psi}$ as the amplitude for basis vector $\vec{e_n}$. For our two state system, instead of $$\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
-                we could say $$\ket{\psi}=\class{tooltip}{\cssId{numvec}{\braket{\uparrow|\psi}\ket{\uparrow}}}+\braket{\downarrow|\psi}\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$ For higher dimensional states with orthonormal basis $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$,
-                with probability amplitudes $a_1, a_2, ..., a_n$, $$\begin{equation}\ket{\psi}=\sum_{i=1}^n a_i\ket{e_i}=\sum_{i=1}^n\braket{e_i|\psi}\ket{e_i}\label{eq:sumstate}\end{equation}$$
+                where we recall that $\alpha$ is the probability amplitude of $\ket{\psi}$ for the outcome $\ket{\uparrow}$. From <span class="itTooltip" data-content="$\braket{\psi|\psi}=|\alpha|^2+|\beta|^2$">eq. \ref{eq:selfprj}</span> and eq. \ref{eq:ampup},
+                we see that $$\braket{\psi|\psi}=|\alpha|^2+|\beta|^2=\left|\braket{\uparrow|\psi}\right|^2+\left|\braket{\downarrow|\psi}\right|^2$$ which hints at the fact that we might be able to define an alternative construction of our quantum state
+                by using $\braket{e_n|\psi}$ as the amplitude for basis vector $\vec{e_n}$. For our two state system, instead of $$\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$ we could say $$\ket{\psi}=\class{tooltip}{\cssId{numvec}{\braket{\uparrow|\psi}\ket{\uparrow}}}+\braket{\downarrow|\psi}\ket{\downarrow}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
+                For higher dimensional states with orthonormal basis $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$, with probability amplitudes $a_1, a_2, ..., a_n$, $$\begin{equation}\ket{\psi}=\sum_{i=1}^n a_i\ket{e_i}=\sum_{i=1}^n\braket{e_i|\psi}\ket{e_i}\label{eq:sumstate}\end{equation}$$
             </p>
             <div class="example tight">
                 <button class="collapsible">Aside: Inner products as projections</button>
@@ -143,7 +144,7 @@ max-height:100%;">
                         I will now cover a bit of geometric intuition for the inner product. Recall that inner products are a generalization of dot products, and that dot products can be used to project one vector, $\vec{v}$, onto another, $\vec{b}$, by using $\vec{v}_{proj\rightarrow
                         b}=(\hat{b}\cdot\vec{v})\hat{b}$ where $\hat{b}$ is the unit vector of $\vec{b}$. As mentioned above, for our quantum states to make physical sense, any ket we make must be normalized, and thus the unit vector of any state is the
                         state itself $\hat{\ket{\psi}}=\ket{\psi}$. Re-writing the projection above in Dirac notation, we thus obtain $\ket{\psi_{proj\rightarrow \phi}}=$<span id="ilqInPP1">____</span>, which looks exactly like
-                        the summation in eq. \ref{eq:sumstate}. As such, just like with normal vectors, you can interpret the quantum state as the sum of its projections onto the basis.
+                        the summation in eq. \ref{eq:sumstate}. As such, just like with regular vectors, you can interpret the quantum state as the sum of its projections onto the basis.
                     </p>
                 </div>
 
@@ -166,15 +167,14 @@ max-height:100%;">
                     </div>
                     <div class="proof-equations">
                         <div>$\begin{align*} \braket{\psi|\psi}&=\left(\alpha^\ast\bra{\uparrow}+\beta^\ast\bra{\downarrow}\right)\left(\alpha\ket{\uparrow}+\beta\ket{\downarrow}\right) \\ &=\alpha^\ast\alpha\underbrace{\braket{\uparrow|\uparrow}}_{\delta_{\uparrow\uparrow}=\,1}+\alpha^\ast\beta\underbrace{\braket{\uparrow|\downarrow}}_{\delta_{\uparrow\downarrow}=\,0}+\beta^\ast\alpha\underbrace{\braket{\downarrow|\uparrow}}_{\delta_{\downarrow\uparrow}=\,0}+\beta^\ast\beta\underbrace{\braket{\downarrow|\downarrow}}_{\delta_{\downarrow\downarrow}=\,1}\\
-                            &=|\alpha|^2+|\beta|^2 \end{align*}$
-                        </div>
+                            &=|\alpha|^2+|\beta|^2 \end{align*}$</div>
                     </div>
                     <div class="proof-explanation">
                         <div class="step">Step 1: $$\bra{\psi}=\class{tooltip}{\cssId{conjBra}{\alpha^\ast\bra{\uparrow}}}+\beta^\ast\bra{\downarrow}\;\text{ multiplied by }\;\ket{\psi}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}$$</div>
                         <div class="step">Step 2: When distributing the parentheses, we can move around scalars freely, but must maintain the order of bras and kets.</div>
                         <div class="step">Step 3: Since $\ket{\uparrow}$ and $\ket{\downarrow}$ are <span class="itTooltip" data-content="$$\begin{align*} \braket{\uparrow|\uparrow}&=1\\
-                \braket{\uparrow|\downarrow}&=0\\ \braket{\downarrow|\uparrow}&=0\\ \braket{\downarrow|\downarrow}&=1
-                \end{align*}$$">orthonormal</span>, we can use the shown Kronecker deltas to simplify the equation. Additionally, we recall that norms are given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$.</div>
+\braket{\uparrow|\downarrow}&=0\\ \braket{\downarrow|\uparrow}&=0\\ \braket{\downarrow|\downarrow}&=1
+\end{align*}$$">orthonormal</span>, we can use the shown Kronecker deltas to simplify the equation. Additionally, we recall that norms are given as $|\alpha|=\sqrt{\alpha^\ast \alpha}$.</div>
                     </div>
 
                 </div>
@@ -285,5 +285,30 @@ max-height:100%;">
         </div>
 
     </div>
-    <div style="min-height: 300px;"></div>
+    <section id="derivationdemo">
+        <h2>Demonstration of dynamically enabled tooltips and support for LaTeX coloring.</h2>
+        <div class="sbs-proof">
+            <div class="proof-navigation">
+                <button class="proof-prev-button" , onclick="prevProofStep(this.value)">&#9651</button>
+                <button class="proof-next-button" , onclick="nextProofStep(this.value)">&#9661</button>
+                <button class="proof-reset-button" , onclick="resetProof(this.value)">&#8634</button>
+                <button class="proof-expand-button" , onclick="expandProof(this.value)">&#x26F6</button>
+            </div>
+            <div class="proof-equations">
+                <div>$\begin{align*}\hat{H}&=\frac{\hat{p}^2}{2m}+\frac{m\omega^2\hat{x}^2}{2}\\ &=\frac{\left({\color{brown}-i}\sqrt{\frac{\hbar m \omega}{2}}(\hat{a}-\hat{a}^\dagger)\right)^2}{2m}+\frac{m\omega^2\left(\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}+\hat{a}^\dagger)\right)^2}{2}\\
+                    &={\color{brown}-}\frac{\hbar\omega(\hat{a}-\hat{a}^\dagger)^2}{4}+\frac{\hbar\omega(\hat{a}+\hat{a}^\dagger)^2}{4}\\ &=\frac{\hbar\omega}{4}\left(\left(\hat{a}\hat{a}^\dagger+\hat{a}^\dagger\hat{a}\cancel{-\hat{a}\hat{a}-\hat{a}^\dagger\hat{a}^\dagger}\right)+\left(\cancel{\hat{a}\hat{a}+\hat{a}^\dagger\hat{a}^\dagger}+\hat{a}\hat{a}^\dagger+\hat{a}^\dagger\hat{a}\right)\right)\\
+                    &=\frac{\hbar\omega}{2}\left(\hat{a}\hat{a}^\dagger+\class{tooltip}{\cssId{numberOp}{\hat{a}^\dagger\hat{a}}}\right)\\ \end{align*}$
+                </div>
+            </div>
+            <div class="proof-explanation">
+                <div class="step">Step 1: We define the Hamiltonian in terms of the momentum and position operators.</div>
+                <div class="step">Step 2: We then rewrite the momentum and position operators in terms of the ladder operators. $$\hat{x}=\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}+\hat{a}^\dagger)\quad\text{and}\quad\hat{p}_x=-i\sqrt{\frac{\hbar m \omega}{2}}(\hat{a}-\hat{a}^\dagger)$$</div>
+                <div class="step">Step 3: Distributing the square we get rid of the square root and the imaginary unit. Note that $({\color{brown}-i})^2=-1$ while $-i^2=1$.</div>
+                <div class="step">Step 4: We then expand the square, remembering to retain the ordering of multiplication for our operators.</div>
+                <div class="step">Step 5: Cancelling out the shown terms leaves us with the result $$\hat{H}=\frac{\hbar\omega}{2}\left(\hat{a}\hat{a}^\dagger+\hat{a}^\dagger\hat{a}\right)$$</div>
+            </div>
+
+        </div>
+    </section>
+    <div style="min-height: 500px;"></div>
 </body>

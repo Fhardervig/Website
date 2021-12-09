@@ -50,19 +50,24 @@ $(".collapsible").each(function() {
     });
 })
 
-$(".itTooltip").each(function() {
-    tippy(this, {
-        content: this.getAttribute("data-content"),
-        allowHTML: true,
-        interactive: true,
-        maxwidth: 350,
-        theme: 'itt',
-        onMount(instance) {
-            MathJax.typeset($('.tippy-content'));
-            instance.popperInstance.update();
-        }
+function intextTooltips(elements) {
+    elements.each(function() {
+        tippy(this, {
+            content: this.getAttribute("data-content"),
+            allowHTML: true,
+            interactive: true,
+            maxwidth: 350,
+            theme: 'itt',
+            onMount(instance) {
+                MathJax.typeset($('.tippy-content'));
+                /* Figure out generalized nesting
+                intextTooltips($('.tippy-content', instance.reference.getAttribute("data-content")))*/
+                instance.popperInstance.update();
+            }
+        })
     })
-})
+}
+intextTooltips($(".itTooltip"))
 
 
 
@@ -89,10 +94,10 @@ $(".draggable").each(function() {
 function attachSubTips() {
     $(".subtip").each(function() {
         tippy(this, {
-            content: "<p> Despite the fact that $\\alpha=|\\alpha_0|e^{-i(\\omega t-\\phi)}$, this value does not depend on $t$ since $$\\begin{align*}|\\alpha|&=\\alpha^\\ast\\alpha\\\\&=|\\alpha_0|\\cancel{e^{-i(\\omega t-\\phi)}}|\\alpha_0|\\cancel{e^{i(\\omega t-\\phi)}}=|\\alpha_0|^2\\end{align*}$$ </p>",
+            content: "Despite the fact that $\\alpha=|\\alpha_0|e^{-i(\\omega t-\\phi)}$, this value does not depend on $t$ since $$\\begin{align*}|\\alpha|&=\\alpha^\\ast\\alpha\\\\&=|\\alpha_0|\\cancel{e^{-i(\\omega t-\\phi)}}|\\alpha_0|\\cancel{e^{i(\\omega t-\\phi)}}\\\\&=|\\alpha_0|^2\\end{align*}$$",
             allowHTML: true,
             interactive: true,
-            theme: 'material',
+            theme: 'itt',
             onMount(instance) {
                 MathJax.typesetPromise($(".subtip").siblings("[id^=tippy-]")).then(function() { instance.popperInstance.update(); })
             }
@@ -207,7 +212,7 @@ function renderProofStep(index, transitiontime) {
             colorFade(line, startColor, endColor, transitiontime);
 
             $(line).find("mjx-mstyle").each(function() {
-                if (this.style.color == "rgb(211, 211, 211)") {
+                if (this.style.color == "rgb(154, 129, 165)") {
                     colorFade(this, startColor, rgbStringToDict(this.dataset.defaultColor), transitiontime);
                 }
             });
@@ -215,15 +220,15 @@ function renderProofStep(index, transitiontime) {
                 this._tippy.enable()
             });
         } else {
-            let endColor = rgbStringToDict("rgb(211,211,211)");
-            if (line.style.color != "rgb(211, 211, 211)") {
+            let endColor = rgbStringToDict("rgb(154,129,165)");
+            if (line.style.color != "rgb(154,129,165)") {
                 let startColor = rgbStringToDict(line.style.color);
                 colorFade(line, startColor, endColor, transitiontime);
             }
             /* Grey out non-focused lines, but store colourstyling
             in data-default-color attribute*/
             $(line).find("mjx-mstyle").each(function() {
-                if (this.style.color != "rgb(211, 211, 211)") {
+                if (this.style.color != "rgb(154,129,165)") {
                     colorFade(this, rgbStringToDict(this.style.color), endColor, transitiontime);
                 }
             })
@@ -239,7 +244,7 @@ function renderProofFull(index) {
     proofLines[index].each(function(idx, line) {
         colorFade(line, rgbStringToDict(line.style.color), rgbStringToDict(line.dataset.defaultColor), 500);
         $(line).find("mjx-mstyle").each(function() {
-            if (this.style.color == "rgb(211, 211, 211)") {
+            if (this.style.color == "rgb(154,129,165)") {
                 colorFade(this, rgbStringToDict(this.style.color), rgbStringToDict(this.dataset.defaultColor), 500);
             }
         });

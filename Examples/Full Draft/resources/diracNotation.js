@@ -99,7 +99,17 @@ tippy("#numvec", {
 })
 
 tippy("#conjBra", {
-    content: 'Remember that $\\bra{\\psi}=\\ket{\\psi}^\\dagger=\\alpha^\\dagger\\ket{\\uparrow}^\\dagger+\\beta^\\dagger\\ket{\\downarrow}^\\dagger$. Since $\\alpha$ and $\\beta$ are scalars, $\\alpha^\\dagger=\\alpha^\\ast$.',
+    content: 'Remember that <br>$\\bra{\\psi}=\\ket{\\psi}^\\dagger=\\alpha^\\dagger\\ket{\\uparrow}^\\dagger+\\beta^\\dagger\\ket{\\downarrow}^\\dagger$<br>Since $\\alpha$ and $\\beta$ are scalars, $\\alpha^\\dagger=\\alpha^\\ast$.',
+    allowHTML: true,
+    interactive: true,
+    theme: 'itt',
+    onMount(instance) {
+        MathJax.typeset($('.tippy-content'));
+        instance.popperInstance.update();
+    }
+})
+tippy("#numberOp", {
+    content: 'We will later define this operator as the number operator $\\hat{N}$.',
     allowHTML: true,
     interactive: true,
     theme: 'itt',
