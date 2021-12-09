@@ -62,7 +62,7 @@
         <section>
             <h2>The Ket</h2>
             <p>
-                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://www.w3schools.com'>here</a> is another post explaining what a Hilbert space is."><strong>Hilbert space</strong></span>,
+                At the heart of Dirac notation lies the <strong> ket</strong>, $\ket{\phantom{\psi}}$, which is used to denote the <span class="itTooltip" data-content="In general you can work with quantum mechanics from the perspective of wave mechanics or matrix mechanics, which are equivalent. <br>We will focus on matrix mechanics.">vector form</span>                of a <strong>quantum state</strong>. E.g. we could write a quantum state <span class="itTooltip" data-content="$\psi$ and $\varphi$ are commonly used to denote arbitrary quantum states, but we could just as well call them $Q$ and $\epsilon$."> $\psi$</span>                as $\ket{\psi}$. Mathematically, the ket is a vector in a <span class="itTooltip" data-content="If you're curious, <a href='https://youtu.be/dQw4w9WgXcQ'>here</a> is another post explaining what a Hilbert space is."><strong>Hilbert space</strong></span>,
                 which, for now, you should just know is a <strong>vector of complex numbers</strong>, $$\ket{\psi}=\begin{pmatrix}a\vec{e_1}\\b\vec{e_2}\\\vdots\\n\vec{e_n}\end{pmatrix}$$ where $a,b,...,n\in\mathbb{C}$ and $\{\vec{e_1},\vec{e_2},...,\vec{e_n}\}$
                 is our basis.</p>
             <p>
@@ -143,7 +143,7 @@ max-height:100%;">
                         I will now cover a bit of geometric intuition for the inner product. Recall that inner products are a generalization of dot products, and that dot products can be used to project one vector, $\vec{v}$, onto another, $\vec{b}$, by using $\vec{v}_{proj\rightarrow
                         b}=(\hat{b}\cdot\vec{v})\hat{b}$ where $\hat{b}$ is the unit vector of $\vec{b}$. As mentioned above, for our quantum states to make physical sense, any ket we make must be normalized, and thus the unit vector of any state is the
                         state itself $\hat{\ket{\psi}}=\ket{\psi}$. Re-writing the projection above in Dirac notation, we thus obtain $\ket{\psi_{proj\rightarrow \phi}}=$<span id="ilqInPP1">____</span>, which looks exactly like
-                        the summation in eq. \ref{eq:sumstate}.
+                        the summation in eq. \ref{eq:sumstate}. As such, just like with normal vectors, you can interpret the quantum state as the sum of its projections onto the basis.
                     </p>
                 </div>
 
@@ -178,8 +178,7 @@ max-height:100%;">
                     </div>
 
                 </div>
-                Once we move onto an $x,y,z$ basis, the usefulness of this fact will become even clearer, but already now, the intuitiveness of Dirac notation should begin to shine through.</p>
-
+                Once we move onto other orthonormal bases, the intuition of the Dirac notation will become even clearer, but already now we can see the usefulness of having any matching states become $1$, and any non-matching states remove their term.</p>
             <p>
                 <h3>Recap:</h3>
                 Inner products extract probability amplitudes. The bra-ket pair takes two <span id="ilqInP1">____</span> and outputs a <span id="ilqInP2">____</span>. The ket is our quantum state which we project onto the bra, in order to obtain the probability
