@@ -245,7 +245,7 @@ function renderProofFull(index) {
     proofLines[index].each(function(idx, line) {
         colorFade(line, rgbStringToDict(line.style.color), rgbStringToDict(line.dataset.defaultColor), 500);
         $(line).find("mjx-mstyle").each(function() {
-            if (this.style.color == "rgb(154,129,165)") {
+            if (this.style.color == "rgb(154, 129, 165)") {
                 colorFade(this, rgbStringToDict(this.style.color), rgbStringToDict(this.dataset.defaultColor), 500);
             }
         });
